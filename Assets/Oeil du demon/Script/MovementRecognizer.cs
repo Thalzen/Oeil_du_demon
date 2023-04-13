@@ -7,6 +7,8 @@ using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 using PDollarGestureRecognizer;
 using Point = System.Drawing.Point;
+using System.IO;
+using UnityEngine.Events;
 
 public class MovementRecognizer : MonoBehaviour
 {
@@ -17,10 +19,29 @@ public class MovementRecognizer : MonoBehaviour
 
     public float newPositionThresholdDistance = 0.05f;
     public GameObject debugSpherePrefab;
-
+    public bool creationMode = true;
+    public string newGestureName;
     private bool isMoving = false;
+
+    public float recognitionThreshold = 0.95f;
+
+    [System.Serializable]
+    public class UnityStringEvent : UnityEvent<string> {}
+
+    public UnityStringEvent OnRecognized;
+
+    private List<Gesture> trainingSet = new List<Gesture>();
     private List<Vector3> positionsList = new List<Vector3>();
     private List<GameObject> Spheretodestroy = new List<GameObject>();
+
+    private void Start()
+    {
+        string[] gestureFiles = Directory.GetFiles(Application.persistentDataPath, ".xml");
+        foreach (var item in gestureFiles)
+        {
+            trainingSet.Add(GestureIO.ReadGestureFromFile(item));
+        }
+    }
 
     private void Update()
     {
@@ -69,7 +90,27 @@ public class MovementRecognizer : MonoBehaviour
             pointArray[i] = new PDollarGestureRecognizer.Point(screenPoint.x, screenPoint.y, 0);
         }
 
-        Gesture newGesture = new Gesture(pointArray);  
+        Gesture newGesture = new Gesture(pointArray);
+        
+        //Add a new gesture to training set
+        if (creationMode)
+        {
+            newGesture.Name = newGestureName;
+            trainingSet.Add(newGesture);
+
+            string fileName = Application.persistentDataPath + "/" + newGestureName + "xml";
+            GestureIO.WriteGesture(pointArray, newGestureName, fileName);
+        }
+        //Recognize
+        else
+        {
+            Result result = PointCloudRecognizer.Classify(newGesture, trainingSet.ToArray());
+            Debug.Log(result.GestureClass + result.Score);
+            if (result.Score > recognitionThreshold )
+            {
+                OnRecognized.Invoke(result.GestureClass);
+            }
+        }
 
     }
 
