@@ -11,7 +11,7 @@ public class SpellCasting : MonoBehaviour
 
     public void FireBall()
     {
-        spawnedfireball = Instantiate(fireballtospawn, gameObject.transform.position,fireballtospawn.transform.rotation);
+        spawnedfireball = Instantiate(fireballtospawn, gameObject.transform.position,gameObject.transform.localRotation);
         spawnedfireball.GetComponent<Rigidbody>().velocity = transform.forward * BallSpeed;
         Destroy(spawnedfireball, 2f);
     }
