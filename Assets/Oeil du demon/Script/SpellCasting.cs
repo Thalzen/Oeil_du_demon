@@ -7,7 +7,7 @@ public class SpellCasting : MonoBehaviour
 {
     [SerializeField] private GameObject fireballtospawn;
     private GameObject spawnedfireball;
-    private float BallSpeed = 50f;
+    private float BallSpeed = 40f;
 
     public void FireBall()
     {
@@ -15,5 +15,7 @@ public class SpellCasting : MonoBehaviour
         spawnedfireball.GetComponent<Rigidbody>().velocity = transform.forward * BallSpeed;
         Destroy(spawnedfireball, 2f);
     }
+    
+    //add Slerp to curve the ball
     
 }
