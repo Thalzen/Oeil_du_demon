@@ -13,26 +13,26 @@ public class SlothEnemy : MonoBehaviour
     private bool IsBlocking;
     [SerializeField]private Transform LeftHand;
     [SerializeField]private Transform RightHand;
-    [SerializeField] private EnemySpellCasting _enemySpellCasting;
+    [SerializeField]private EnemySpellCasting _enemySpellCasting;
+    
 
-    // private void Start()
-    // {
-    //     StartCoroutine(Pattern());
-    // }
-    //
-    //
-    // private IEnumerator Pattern()
-    // {
-    //     yield return new WaitForSeconds(6f);
-    //     StartCoroutine(Fireball());
-    //
-    //
-    // }
-    //
-    // private IEnumerator Fireball()
-    // {
-    //     
-    // }
+    private void Start()
+    {
+        StartCoroutine(Pattern());
+    }
+    
+    
+    private IEnumerator Pattern()
+    {
+        yield return new WaitForSeconds(2f);
+        StartCoroutine(_enemySpellCasting.Fireball());
+        yield return new WaitForSeconds(4f);
+        StartCoroutine(Pattern());
+
+
+    }
+    
+   
 
 
 }
