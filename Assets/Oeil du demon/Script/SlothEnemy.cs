@@ -23,13 +23,11 @@ public class SlothEnemy : MonoBehaviour
     
     
     private IEnumerator Pattern()
-    {
+    { 
         yield return new WaitForSeconds(2f);
-        StartCoroutine(_enemySpellCasting.Fireball());
-        yield return new WaitForSeconds(4f);
+       _enemySpellCasting.Fireball();
+        yield return new WaitForSeconds(2f);
         StartCoroutine(Pattern());
-
-
     }
     
    

@@ -2,29 +2,27 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VFX;
 
 public class EnemySpellCasting : MonoBehaviour
 {
     [SerializeField] private GameObject fireballtospawn;
+    private GameObject Enemyfireball;
+    private EnemyFireBall _enemyFireBall;
+    public Transform[] EnemyTargetPos;
     private GameObject spawnedfireball;
-    private float BallSpeed = 40f;
-    [SerializeField]private Transform[] TargetPos;
-    
-    
-    public IEnumerator Fireball()
+
+    private void Start()
     {
-        spawnedfireball = Instantiate(fireballtospawn, gameObject.transform.position,gameObject.transform.localRotation);
-        yield return new WaitForSeconds(2f);
         
-        Destroy(spawnedfireball, 2f);
     }
 
-    private void Update()
+
+    public void Fireball()
     {
-        if (spawnedfireball != null)
-        {
-            spawnedfireball.transform.position = Vector3.Slerp(TargetPos[0].position,TargetPos[1].position,0.5f);
-        }
-        
+        spawnedfireball = Instantiate(fireballtospawn, gameObject.transform.position, Quaternion.identity);
+        spawnedfireball.GetComponent<EnemyFireBall>().StartCoroutine(spawnedfireball.GetComponent<EnemyFireBall>().fireballmove(EnemyTargetPos[1]));
+
     }
+
 }
