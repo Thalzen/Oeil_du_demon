@@ -6,12 +6,12 @@ using UnityEngine.VFX;
 
 public class EnemyFireBall : MonoBehaviour
 {
-    private float BallSpeed = 0.05f;
+    private float BallSpeed = 0.2f;
     private float _time = 0.01f;
-    private float _rotationspeed;
+    private float _rotationspeed = 0.1f;
     private void Start()
     {
-        
+        Destroy(gameObject, 10);
     }
     private void Update()
     {
