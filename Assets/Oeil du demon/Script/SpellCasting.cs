@@ -6,18 +6,17 @@ using UnityEngine;
 public class SpellCasting : MonoBehaviour
 {
     [SerializeField] private GameObject fireballtospawn;
-    private GameObject spawnedfireball;
-    private float BallSpeed = 40f;
+    private GameObject playerfireball;
     [SerializeField]private Transform[] PlayerTargetPos;
+    private GameObject spawnedfireball;
 
     public void FireBall()
     {
-        spawnedfireball = Instantiate(fireballtospawn, gameObject.transform.position,gameObject.transform.localRotation);
-        spawnedfireball.transform.position = Vector3.Slerp(PlayerTargetPos[0].position,PlayerTargetPos[1].position,0.5f);
-        //spawnedfireball.GetComponent<Rigidbody>().velocity = transform.forward * BallSpeed;
-        Destroy(spawnedfireball, 4f);
+        playerfireball = Instantiate(fireballtospawn, gameObject.transform.position,gameObject.transform.localRotation);
+        playerfireball.GetComponent<PlayerFireBall>().StartCoroutine(spawnedfireball.GetComponent<PlayerFireBall>().playerfireballmove(PlayerTargetPos[1]));
+        
     }
     
-    //add Slerp to curve the ball
+    
     
 }

@@ -18,6 +18,7 @@ public class SlothEnemy : MonoBehaviour
 
     private void Start()
     {
+
         StartCoroutine(Pattern());
     }
     
@@ -29,7 +30,16 @@ public class SlothEnemy : MonoBehaviour
         yield return new WaitForSeconds(2f);
         StartCoroutine(Pattern());
     }
-    
+
+    // private IEnumerator shotgun()
+    // {
+    //     for (int i = 1; i < 30f; i++)
+    //     {
+    //         StartCoroutine(Pattern());
+    //         yield return new WaitForSeconds(0.1f);
+    //     }
+    // }
+    //
    
 
 

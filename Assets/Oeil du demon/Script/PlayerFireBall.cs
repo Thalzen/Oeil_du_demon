@@ -1,20 +1,16 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.VFX;
-using Random = UnityEngine.Random;
 
-public class EnemyFireBall : MonoBehaviour
+public class PlayerFireBall : MonoBehaviour
 {
-    [SerializeField]private float BallSpeed = 0.2f;
-    [SerializeField]private float _time = 1f;
-    [SerializeField]private float _rotationspeed = 5f;
+    [SerializeField]private float BallSpeed = 0.1f;
+    [SerializeField]private float _time = 0.01f;
+    [SerializeField]private float _rotationspeed = 0.1f;
     private GameObject _fireballprefab;
-    [SerializeField] private float fireballanglex;
-    
-    
+    [SerializeField] private float fireballanglex = -90;
+
     private void Start()
     {
         _fireballprefab = gameObject.transform.GetChild(0).gameObject;
@@ -26,11 +22,11 @@ public class EnemyFireBall : MonoBehaviour
         
     }
 
-    public IEnumerator enemyfireballmove(Transform target)
+    public IEnumerator playerfireballmove(Transform target)
     {
         yield return new WaitForSeconds(2f);
         _fireballprefab.GetComponent<VisualEffect>().playRate = 4f;
-        _fireballprefab.transform.rotation = Quaternion.Euler(-90f,0,0);
+        _fireballprefab.transform.rotation = Quaternion.Euler(fireballanglex,0,0);
         gameObject.transform.localRotation = Quaternion.Euler(Random.Range(160,220), Random.Range(-30,30),0f);
         //gameObject.transform.localRotation = Quaternion.Euler(fireballanglex, fireballangley,0f);
         for (int i = 0; i < 1000f; i++)
@@ -45,7 +41,7 @@ public class EnemyFireBall : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Enemy"))
         {
             Destroy(gameObject);
         }
