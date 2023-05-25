@@ -12,9 +12,18 @@ public class SpellCasting : MonoBehaviour
 
     public void FireBall()
     {
-        playerfireball = Instantiate(fireballtospawn, gameObject.transform.position,gameObject.transform.localRotation);
-        playerfireball.GetComponent<PlayerFireBall>().StartCoroutine(spawnedfireball.GetComponent<PlayerFireBall>().playerfireballmove(PlayerTargetPos[1]));
-        
+        StartCoroutine(gatlingfireball());
+
+    }
+
+    public IEnumerator gatlingfireball()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            spawnedfireball = Instantiate(fireballtospawn, gameObject.transform.position,Quaternion.identity);
+            spawnedfireball.GetComponent<PlayerFireBall>().StartCoroutine(spawnedfireball.GetComponent<PlayerFireBall>().playerfireballmove(PlayerTargetPos[1]));
+            yield return new WaitForSeconds(0.2f);
+        }
     }
     
     

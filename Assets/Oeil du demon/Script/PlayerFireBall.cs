@@ -1,7 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.VFX;
+using Random = UnityEngine.Random;
 
 public class PlayerFireBall : MonoBehaviour
 {
@@ -10,6 +13,7 @@ public class PlayerFireBall : MonoBehaviour
     [SerializeField]private float _rotationspeed = 0.1f;
     private GameObject _fireballprefab;
     [SerializeField] private float fireballanglex = -90;
+    [SerializeField] private float fireballangley = -90;
 
     private void Start()
     {
@@ -26,8 +30,8 @@ public class PlayerFireBall : MonoBehaviour
     {
         yield return new WaitForSeconds(2f);
         _fireballprefab.GetComponent<VisualEffect>().playRate = 4f;
-        _fireballprefab.transform.rotation = Quaternion.Euler(fireballanglex,0,0);
-        gameObject.transform.localRotation = Quaternion.Euler(Random.Range(160,220), Random.Range(-30,30),0f);
+        _fireballprefab.transform.rotation = Quaternion.Euler(-90,0,0);
+        gameObject.transform.localRotation = Quaternion.Euler(Random.Range(-20,20), Random.Range(-50,50),0f);
         //gameObject.transform.localRotation = Quaternion.Euler(fireballanglex, fireballangley,0f);
         for (int i = 0; i < 1000f; i++)
         {
