@@ -24,6 +24,7 @@ public class MovementRecognizer : MonoBehaviour
     private bool isMoving = false;
 
     public float recognitionThreshold = 0.95f;
+    [SerializeField] private GestureList _GestureList;
 
     [System.Serializable]
     public class UnityStringEvent : UnityEvent<string> {}
@@ -36,11 +37,11 @@ public class MovementRecognizer : MonoBehaviour
 
     private void Start()
     {
-        string[] gestureFiles = Directory.GetFiles(Application.persistentDataPath, ".xml");
-        foreach (var item in gestureFiles)
-        {
-            trainingSet.Add(GestureIO.ReadGestureFromFile(item));
-        }
+        // foreach (var item in _GestureList.trainingSetData)
+        // {
+        //     trainingSet.Add(item);
+        //     
+        // }
     }
 
     private void Update()
@@ -78,7 +79,7 @@ public class MovementRecognizer : MonoBehaviour
     {
         foreach (GameObject gameObject in Spheretodestroy)
         {
-            Destroy((gameObject),1);
+            Destroy((gameObject));
         }
         Spheretodestroy.Clear();
         isMoving = false;
@@ -96,19 +97,21 @@ public class MovementRecognizer : MonoBehaviour
         if (creationMode)
         {
             newGesture.Name = newGestureName;
-            trainingSet.Add(newGesture);
+            //trainingSet.Add(newGesture);
+            _GestureList.trainingSetData.Add(newGesture);
 
-            string fileName = Application.persistentDataPath + "/" + newGestureName + "xml";
-            GestureIO.WriteGesture(pointArray, newGestureName, fileName);
+            // string fileName = Application.persistentDataPath + "/" + newGestureName + "xml";
+            // GestureIO.WriteGesture(pointArray, newGestureName, fileName);
         }
         //Recognize
         else
         {
-            Result result = PointCloudRecognizer.Classify(newGesture, trainingSet.ToArray());
-            Debug.Log(result.GestureClass + result.Score);
-            if (result.Score > recognitionThreshold )
+            Result result = PointCloudRecognizer.Classify(newGesture, _GestureList.trainingSetData.ToArray());
+            Debug.Log(result.GestureClass + " " + result.Score);
+            if (result.Score >= recognitionThreshold )
             {
                 OnRecognized.Invoke(result.GestureClass);
+                Debug.Log(result.GestureClass + result.Score);
             }
         }
 

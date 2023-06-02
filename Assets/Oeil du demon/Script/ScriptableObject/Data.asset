@@ -1,0 +1,211 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed9f4753da56956418f81582ae58d2c0, type: 3}
+  m_Name: Data
+  m_EditorClassIdentifier: 
+  trainingSetData:
+  - Points:
+    - X: 0.019847881
+      Y: 0.51455986
+      StrokeID: 0
+    - X: 0.019145265
+      Y: 0.48220238
+      StrokeID: 0
+    - X: 0.01844265
+      Y: 0.4498449
+      StrokeID: 0
+    - X: 0.017740034
+      Y: 0.4174874
+      StrokeID: 0
+    - X: 0.016821552
+      Y: 0.38513878
+      StrokeID: 0
+    - X: 0.014868721
+      Y: 0.35283262
+      StrokeID: 0
+    - X: 0.012915891
+      Y: 0.32052648
+      StrokeID: 0
+    - X: 0.010657588
+      Y: 0.28824827
+      StrokeID: 0
+    - X: 0.0067184037
+      Y: 0.25612375
+      StrokeID: 0
+    - X: 0.0027792195
+      Y: 0.22399925
+      StrokeID: 0
+    - X: -0.001159965
+      Y: 0.19187474
+      StrokeID: 0
+    - X: -0.0050991494
+      Y: 0.15975025
+      StrokeID: 0
+    - X: -0.008178796
+      Y: 0.1275508
+      StrokeID: 0
+    - X: -0.009859248
+      Y: 0.095229335
+      StrokeID: 0
+    - X: -0.0115396995
+      Y: 0.062907875
+      StrokeID: 0
+    - X: -0.013220152
+      Y: 0.030586414
+      StrokeID: 0
+    - X: -0.014900603
+      Y: -0.0017350479
+      StrokeID: 0
+    - X: -0.014740183
+      Y: -0.034077946
+      StrokeID: 0
+    - X: -0.013812826
+      Y: -0.06642978
+      StrokeID: 0
+    - X: -0.012885469
+      Y: -0.09878161
+      StrokeID: 0
+    - X: -0.011958112
+      Y: -0.13113344
+      StrokeID: 0
+    - X: -0.011075484
+      Y: -0.16348638
+      StrokeID: 0
+    - X: -0.010401743
+      Y: -0.19584449
+      StrokeID: 0
+    - X: -0.009728003
+      Y: -0.22820258
+      StrokeID: 0
+    - X: -0.009054262
+      Y: -0.2605607
+      StrokeID: 0
+    - X: -0.008509542
+      Y: -0.29291818
+      StrokeID: 0
+    - X: -0.009481971
+      Y: -0.3252687
+      StrokeID: 0
+    - X: -0.0104543995
+      Y: -0.3576192
+      StrokeID: 0
+    - X: -0.011426829
+      Y: -0.3899697
+      StrokeID: 0
+    - X: -0.006180129
+      Y: -0.42183265
+      StrokeID: 0
+    - X: -0.00017810828
+      Y: -0.45363638
+      StrokeID: 0
+    - X: 0.0058239126
+      Y: -0.48544008
+      StrokeID: 0
+    Name: Fireball
+  - Points:
+    - X: -0.49071485
+      Y: 0.2628324
+      StrokeID: 0
+    - X: -0.3977754
+      Y: 0.28484654
+      StrokeID: 0
+    - X: -0.30298218
+      Y: 0.29580265
+      StrokeID: 0
+    - X: -0.20781831
+      Y: 0.30392787
+      StrokeID: 0
+    - X: -0.11245557
+      Y: 0.3090126
+      StrokeID: 0
+    - X: -0.017238077
+      Y: 0.31624165
+      StrokeID: 0
+    - X: 0.07803397
+      Y: 0.32284793
+      StrokeID: 0
+    - X: 0.17348434
+      Y: 0.32544023
+      StrokeID: 0
+    - X: 0.26898816
+      Y: 0.32660446
+      StrokeID: 0
+    - X: 0.36435682
+      Y: 0.33076024
+      StrokeID: 0
+    - X: 0.44526634
+      Y: 0.30797213
+      StrokeID: 0
+    - X: 0.4917522
+      Y: 0.22582957
+      StrokeID: 0
+    - X: 0.50530213
+      Y: 0.13297267
+      StrokeID: 0
+    - X: 0.4929383
+      Y: 0.038266305
+      StrokeID: 0
+    - X: 0.47482067
+      Y: -0.054997213
+      StrokeID: 0
+    - X: 0.4400831
+      Y: -0.14361042
+      StrokeID: 0
+    - X: 0.38397992
+      Y: -0.22090721
+      StrokeID: 0
+    - X: 0.3325423
+      Y: -0.30137533
+      StrokeID: 0
+    - X: 0.2569514
+      Y: -0.35925567
+      StrokeID: 0
+    - X: 0.17421599
+      Y: -0.40657073
+      StrokeID: 0
+    - X: 0.083729856
+      Y: -0.43620074
+      StrokeID: 0
+    - X: -0.01123826
+      Y: -0.44265223
+      StrokeID: 0
+    - X: -0.1042277
+      Y: -0.4235125
+      StrokeID: 0
+    - X: -0.19572678
+      Y: -0.39625767
+      StrokeID: 0
+    - X: -0.28124306
+      Y: -0.35499308
+      StrokeID: 0
+    - X: -0.35760713
+      Y: -0.29813856
+      StrokeID: 0
+    - X: -0.4108363
+      Y: -0.22104797
+      StrokeID: 0
+    - X: -0.43241408
+      Y: -0.13010633
+      StrokeID: 0
+    - X: -0.43137482
+      Y: -0.0349015
+      StrokeID: 0
+    - X: -0.4223514
+      Y: 0.059563976
+      StrokeID: 0
+    - X: -0.45133495
+      Y: 0.15044594
+      StrokeID: 0
+    - X: -0.41297668
+      Y: 0.23791596
+      StrokeID: 0
+    Name: Shield

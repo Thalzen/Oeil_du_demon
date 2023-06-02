@@ -9,23 +9,46 @@ public class SpellCasting : MonoBehaviour
     private GameObject playerfireball;
     [SerializeField]private Transform[] PlayerTargetPos;
     private GameObject spawnedfireball;
+    [SerializeField] private GameObject _shield;
+    private bool shieldup;
 
-    public void FireBall()
+    // list of spell
+    public void SpellList(string spell)
     {
-        StartCoroutine(gatlingfireball());
-
-    }
-
-    public IEnumerator gatlingfireball()
-    {
-        for (int i = 0; i < 3; i++)
+        if (spell == "Fireball")
         {
-            spawnedfireball = Instantiate(fireballtospawn, gameObject.transform.position,Quaternion.identity);
-            spawnedfireball.GetComponent<PlayerFireBall>().StartCoroutine(spawnedfireball.GetComponent<PlayerFireBall>().playerfireballmove(PlayerTargetPos[1]));
-            yield return new WaitForSeconds(0.2f);
+            Fireball();
         }
+
+        if (spell == "Shield")
+        {
+            Shield();
+        }
+
     }
-    
-    
-    
+
+    private void Fireball()
+    {
+        spawnedfireball = Instantiate(fireballtospawn, gameObject.transform.position,Quaternion.identity);
+        spawnedfireball.GetComponent<PlayerFireBall>().givelocation(PlayerTargetPos[0],PlayerTargetPos[1]);
+        //StartCoroutine(gatlingfireball());
+    }
+
+    private void Shield()
+    {
+        PlayerShield playerShield = _shield.GetComponent<PlayerShield>();
+        _shield.SetActive(true);
+        playerShield.HP = 30f;
+        playerShield._healthbar.fillAmount = playerShield.HP / playerShield.MAXHP;
+        
+    }
+    // public IEnumerator gatlingfireball()
+    // {
+    //     spawnedfireball = Instantiate(fireballtospawn, gameObject.transform.position,Quaternion.identity);
+    //     spawnedfireball.GetComponent<PlayerFireBall>().StartCoroutine(spawnedfireball.GetComponent<PlayerFireBall>().playerfireballmove(PlayerTargetPos[1]));
+    //     yield return new WaitForSeconds(0.2f);
+    // }
+
+
+
 }

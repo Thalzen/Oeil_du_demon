@@ -2,11 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SlothEnemy : MonoBehaviour
 {
-    private int HP;
-    private int MAXHP;
+    [SerializeField]private float HP;
+    [SerializeField]private float MAXHP;
     private int castingtime;
 
     private bool Iscastingfireball;
@@ -14,6 +15,7 @@ public class SlothEnemy : MonoBehaviour
     [SerializeField]private Transform LeftHand;
     [SerializeField]private Transform RightHand;
     [SerializeField]private EnemySpellCasting _enemySpellCasting;
+    [SerializeField] private Image _healthbar;
     
 
     private void Start()
@@ -21,8 +23,18 @@ public class SlothEnemy : MonoBehaviour
 
         StartCoroutine(Pattern());
     }
-    
-    
+
+    private void OnEnable()
+    {
+        PlayerFireBall.DamageDealt += TakingDamage;
+    }
+
+    private void OnDisable()
+    {
+        PlayerFireBall.DamageDealt -= TakingDamage;
+    }
+
+
     private IEnumerator Pattern()
     { 
         yield return new WaitForSeconds(2f);
@@ -30,6 +42,20 @@ public class SlothEnemy : MonoBehaviour
         yield return new WaitForSeconds(2f);
         StartCoroutine(Pattern());
     }
+
+    
+
+
+    public void TakingDamage(float damage)
+    {
+        HP -= damage;
+        _healthbar.fillAmount = HP / MAXHP;
+        
+    }
+    
+    
+    
+    
 
     // private IEnumerator shotgun()
     // {

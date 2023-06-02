@@ -6,10 +6,10 @@ TagManager:
   tags:
   - Flame
   - Projectile
-  - Destroyer
   - MiniWorldCamera
-  - Water
   - Enemy
+  - PlayerShield
+  - PlayerFireball
   layers:
   - Default
   - TransparentFX
