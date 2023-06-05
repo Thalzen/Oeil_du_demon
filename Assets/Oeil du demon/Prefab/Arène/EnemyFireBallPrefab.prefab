@@ -47,10 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b8f92a27a4e1484b8a25fd392653a90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BallSpeed: 0.2
+  BallSpeed: 0.3
   _time: 1
   _rotationspeed: 5
-  Playerfireball: {fileID: 8767566529334433763, guid: 59551dde297c16d4eaf9892f6303255f,
+  _playerfireball: {fileID: 8767566529334433763, guid: 59551dde297c16d4eaf9892f6303255f,
     type: 3}
 --- !u!136 &7003352382368737995
 CapsuleCollider:

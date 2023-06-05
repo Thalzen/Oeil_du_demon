@@ -13,18 +13,17 @@ public class EnemyFireBall : MonoBehaviour
     [SerializeField] private float BallSpeed = 0.2f;
     [SerializeField] private float _time = 1f;
     [SerializeField] private float _rotationspeed = 5f;
-    [SerializeField] private GameObject _fireballprefab;
-    [SerializeField] private GameObject Playerfireball;
+    private GameObject _fireballprefab;
+    [SerializeField] private GameObject _playerfireball;
+    private Transform playerpostranfer;
     private Transform enemypostransfer;
+    private bool Countered;
     
     public delegate void DamageEvent(float damage);
 
     public static event DamageEvent PlayerShieldDamage;
     
-    private void Start()
-    {
-        _fireballprefab = gameObject.transform.GetChild(0).gameObject;
-    }
+    
 
     private void Awake()
     {
@@ -39,7 +38,7 @@ public class EnemyFireBall : MonoBehaviour
     public IEnumerator enemyfireballmove(Transform enemypos,Transform playerpos)
     {
         enemypostransfer = enemypos;
-        yield return new WaitForSeconds(2f);
+        playerpostranfer = playerpos;
         _fireballprefab.GetComponent<VisualEffect>().playRate = 4f;
         _fireballprefab.transform.rotation = Quaternion.Euler(-90f,0,0);
         gameObject.transform.localRotation = Quaternion.Euler(Random.Range(160,220), Random.Range(-30,30),0f);
@@ -53,6 +52,15 @@ public class EnemyFireBall : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
     }
+    //projectile being countered by the enemy
+    public void enemyprojectilecountered(bool countered, Transform playerpos , Transform enemypos)
+    {
+        playerpostranfer = playerpos;
+        enemypostransfer = enemypos;
+        Countered = countered;
+        StartCoroutine(enemyfireballmove(enemypostransfer,playerpostranfer));
+        
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -62,9 +70,9 @@ public class EnemyFireBall : MonoBehaviour
         }
         if (other.gameObject.CompareTag("PlayerShield"))
         {
-           GameObject spawnfireball = Instantiate(Playerfireball, gameObject.transform.position, quaternion.identity);
-           spawnfireball.gameObject.GetComponent<PlayerFireBall>().projectilecountered(true,enemypostransfer);
-           PlayerShieldDamage?.Invoke(_fireballdamage);
+           GameObject spawnfireball = Instantiate(_playerfireball, gameObject.transform.position, quaternion.identity);
+           spawnfireball.gameObject.GetComponent<PlayerFireBall>().playerprojectilecountered(true,enemypostransfer,playerpostranfer);
+           PlayerShieldDamage?.Invoke(_fireballdamage*4);
            Destroy(gameObject);
             
         }

@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - PlayerShield
   - PlayerFireball
+  - EnemyShield
   layers:
   - Default
   - TransparentFX

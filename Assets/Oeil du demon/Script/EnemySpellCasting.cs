@@ -10,6 +10,8 @@ public class EnemySpellCasting : MonoBehaviour
     private GameObject Enemyfireball;
     public Transform[] EnemyTargetPos;
     private GameObject spawnedfireball;
+    [SerializeField] private GameObject EnemyShield;
+    
 
     private void Start()
     {
@@ -17,11 +19,22 @@ public class EnemySpellCasting : MonoBehaviour
     }
 
 
+    //targetpos[0] = Enemypos
+    //targetpos[1] = playerpos
     public void Fireball()
     {
         spawnedfireball = Instantiate(fireballtospawn, gameObject.transform.position, Quaternion.identity);
         spawnedfireball.GetComponent<EnemyFireBall>().StartCoroutine(spawnedfireball.GetComponent<EnemyFireBall>().enemyfireballmove(EnemyTargetPos[0],EnemyTargetPos[1]));
 
+    }
+
+    public void SpawnShield()
+    {
+        EnemyShield enemyShield = EnemyShield.GetComponent<EnemyShield>();
+        EnemyShield.SetActive(true);
+        enemyShield.HP = 30f;
+        enemyShield._healthbar.fillAmount = enemyShield.HP / enemyShield.MAXHP;
+       
     }
 
 }

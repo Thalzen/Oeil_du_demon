@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.VFX;
@@ -10,26 +11,25 @@ using Random = UnityEngine.Random;
 
 public class PlayerFireBall : MonoBehaviour
 {
-    [SerializeField] public float fireballdamage = 10;
+    [SerializeField] public float _fireballdamage = 2.5f;
     [SerializeField] float InputThreshold = 0.1f;
     
-    [SerializeField] private float BallSpeed = 0.1f;
-    [SerializeField] private float _time = 0.01f;
-    [SerializeField] private float _rotationspeed = 0.1f;
-    [SerializeField] private GameObject _fireballprefab;
-    private Transform targetpos;
+    [SerializeField] private float BallSpeed = 0.2f;
+    [SerializeField] private float _time = 1f;
+    [SerializeField] private float _rotationspeed = 5f;
+    private GameObject _fireballprefab;
+    [SerializeField] private GameObject _enemyfireball;
+    private Transform enemypostransfer;
+    private Transform playerpostransfer;
     private bool Fired;
     private bool Countered;
 
     public delegate void DamageEvent(float damage);
 
     public static event DamageEvent DamageDealt;
+    public static event DamageEvent EnemyShieldDamage;
 
-    private void Start()
-    {
-        _fireballprefab = gameObject.transform.GetChild(0).gameObject;
-
-    }
+    
 
     private void Awake()
     {
@@ -57,19 +57,22 @@ public class PlayerFireBall : MonoBehaviour
             _time = Time.deltaTime;
             Debug.DrawRay(transform.position,transform.forward*10f,Color.blue);
             transform.position += transform.forward * BallSpeed;
-            transform.forward = Vector3.Slerp(transform.forward,targetpos.position-transform.position,_rotationspeed*_time);
+            transform.forward = Vector3.Slerp(transform.forward,enemypostransfer.position-transform.position,_rotationspeed*_time);
             yield return new WaitForEndOfFrame();
         }
     }
 
     public void givelocation(Transform playerpos,Transform enemypos)
     {
-        targetpos = enemypos;
+        enemypostransfer = enemypos;
+        playerpostransfer = playerpos;
     }
 
-    public void projectilecountered(bool countered, Transform enemypos)
+    //projectile being countered by the player
+    public void playerprojectilecountered(bool countered, Transform enemypos, Transform playerpos)
     {
-        targetpos = enemypos;
+        playerpostransfer = playerpos;
+        enemypostransfer = enemypos;
         Countered = countered;
         Fired = true;
         StartCoroutine(playerfireballmove());
@@ -80,8 +83,23 @@ public class PlayerFireBall : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            DamageDealt?.Invoke(fireballdamage);
+            DamageDealt?.Invoke(_fireballdamage);
             Destroy(gameObject);
         }
+
+        if (Random.Range(0, 100) >= 20)
+        {
+            if (other.gameObject.CompareTag("EnemyShield"))
+            {
+                GameObject spawnfireball = Instantiate(_enemyfireball, gameObject.transform.position, quaternion.identity);
+                spawnfireball.gameObject.GetComponent<EnemyFireBall>().enemyprojectilecountered(true,playerpostransfer,enemypostransfer);
+                EnemyShieldDamage?.Invoke(_fireballdamage);
+                Destroy(gameObject);
+            
+            }
+        }
+        
+        
+        
     }
 }

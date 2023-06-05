@@ -6,9 +6,8 @@ using UnityEngine.UI;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class PlayerShield : MonoBehaviour
+public class EnemyShield : MonoBehaviour
 {
-    [SerializeField] float InputThreshold = 0.1f;
     public float HP = 30;
     public float MAXHP = 30;
     public Image _healthbar;
@@ -22,24 +21,14 @@ public class PlayerShield : MonoBehaviour
 
     private void OnEnable()
     {
-        EnemyFireBall.PlayerShieldDamage += TakingDamage;
+        PlayerFireBall.EnemyShieldDamage += TakingDamage;
     }
 
     private void OnDisable()
     {
-        EnemyFireBall.PlayerShieldDamage -= TakingDamage;
+        PlayerFireBall.EnemyShieldDamage -= TakingDamage;
     }
-
-    private void Update()
-    {
-        InputHelpers.IsPressed(InputDevices.GetDeviceAtXRNode(XRNode.LeftHand), InputHelpers.Button.Trigger, out bool isPressed, InputThreshold);
-        if (isPressed && !isPulsed)
-        {
-            isPulsed = true;
-            StartCoroutine(Pulse());
-        }
-    }
-
+    
     public void TakingDamage(float damage)
     {
         if(!isPulsed)
@@ -53,12 +42,6 @@ public class PlayerShield : MonoBehaviour
             gameObject.SetActive(false);
         }
         
-    }
-    
-    private IEnumerator Pulse()
-    {
-        yield return new WaitForSeconds(1f);
-        isPulsed = false;
     }
 
 }

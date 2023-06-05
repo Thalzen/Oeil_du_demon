@@ -27,6 +27,8 @@ public class SpellCasting : MonoBehaviour
 
     }
 
+    //playerpos[0] = playerpos
+    //playerpos[1] = enemypos
     private void Fireball()
     {
         spawnedfireball = Instantiate(fireballtospawn, gameObject.transform.position,Quaternion.identity);

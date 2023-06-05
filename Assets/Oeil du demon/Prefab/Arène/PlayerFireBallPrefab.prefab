@@ -77,12 +77,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b59c94a29a7623942a728d6af218564a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageDealt: 10
+  _fireballdamage: 2.5
   InputThreshold: 0.1
-  BallSpeed: 0.2
+  BallSpeed: 0.3
   _time: 1
-  _rotationspeed: 5
-  _fireballprefab: {fileID: 0}
+  _rotationspeed: 2
+  _enemyfireball: {fileID: 8767566529334433763, guid: ba910bb2d4a91e543a1ed030efe18db2,
+    type: 3}
 --- !u!1001 &3071213158343455642
 PrefabInstance:
   m_ObjectHideFlags: 0
