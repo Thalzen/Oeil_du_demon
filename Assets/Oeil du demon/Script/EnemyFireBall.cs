@@ -15,7 +15,7 @@ public class EnemyFireBall : MonoBehaviour
     [SerializeField] private float _rotationspeed = 5f;
     private GameObject _fireballprefab;
     [SerializeField] private GameObject _playerfireball;
-    private Transform playerpostranfer;
+    private Transform[] playerpostranfer;
     private Transform enemypostransfer;
     private bool Countered;
     [SerializeField] private float fireballanglex;
@@ -37,28 +37,28 @@ public class EnemyFireBall : MonoBehaviour
         
     }
 
-    public IEnumerator enemyfireballmove(Transform enemypos,Transform playerpos)
+    public IEnumerator enemyfireballmove(Transform enemypos,Transform[] playerpos)
     {
         enemypostransfer = enemypos;
         playerpostranfer = playerpos;
         
-        yield return new WaitForSeconds(2f);
         _fireballprefab.GetComponent<VisualEffect>().playRate = 4f;
         gameObject.transform.rotation = Quaternion.Euler(0f,180,0);
         _fireballprefab.transform.rotation = Quaternion.Euler(90f,0f,0);
         gameObject.transform.localRotation = Quaternion.Euler(Random.Range(0,-90), Random.Range(90,270),0f);
         //gameObject.transform.localRotation = Quaternion.Euler(fireballanglex, fireballangley,0f);
+        int selectedpos = Random.Range(0,4);
         for (int i = 0; i < 1000f; i++)
         {
             _time = Time.deltaTime;
             Debug.DrawRay(transform.position,transform.forward*10f,Color.blue);
             transform.position += transform.forward * BallSpeed;
-            transform.forward = Vector3.Slerp(transform.forward,playerpos.position-transform.position,_rotationspeed*_time);
+            transform.forward = Vector3.Slerp(transform.forward,playerpos[selectedpos].position-transform.position,_rotationspeed*_time);
             yield return new WaitForEndOfFrame();
         }
     }
     //projectile being countered by the enemy
-    public void enemyprojectilecountered(bool countered, Transform playerpos , Transform enemypos)
+    public void enemyprojectilecountered(bool countered, Transform[] playerpos , Transform enemypos)
     {
         playerpostranfer = playerpos;
         enemypostransfer = enemypos;

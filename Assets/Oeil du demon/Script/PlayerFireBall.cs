@@ -20,9 +20,12 @@ public class PlayerFireBall : MonoBehaviour
     private GameObject _fireballprefab;
     [SerializeField] private GameObject _enemyfireball;
     private Transform enemypostransfer;
-    private Transform playerpostransfer;
-    private bool Fired;
+    private Transform[] playerpostransfer;
+    public bool Fired;
     private bool Countered;
+    [SerializeField] private float fireballanglex;
+    [SerializeField] private float fireballangley;
+    [SerializeField] private GameObject fireballdirection;
 
     public delegate void DamageEvent(float damage);
 
@@ -38,12 +41,12 @@ public class PlayerFireBall : MonoBehaviour
 
     private void Update()
     {
-        InputHelpers.IsPressed(InputDevices.GetDeviceAtXRNode(XRNode.RightHand), InputHelpers.Button.Trigger, out bool isPressed, InputThreshold);
-        if (isPressed && !Countered && !Fired)
-        {
-            Fired = true;
-            StartCoroutine(playerfireballmove());
-        }
+        // InputHelpers.IsPressed(InputDevices.GetDeviceAtXRNode(XRNode.RightHand), InputHelpers.Button.Trigger, out bool isPressed, InputThreshold);
+        // if (isPressed && !Countered && !Fired)
+        // {
+        //     Fired = true;
+        //     StartCoroutine(playerfireballmove());
+        // }
     }
 
     public IEnumerator playerfireballmove()
@@ -51,6 +54,7 @@ public class PlayerFireBall : MonoBehaviour
         _fireballprefab.GetComponent<VisualEffect>().playRate = 4f;
         _fireballprefab.transform.rotation = Quaternion.Euler(-90,0,0);
         gameObject.transform.localRotation = Quaternion.Euler(Random.Range(-20,20), Random.Range(-50,50),0f);
+        //gameObject.transform.localRotation = Quaternion.Euler(fireballanglex, fireballangley,0f);
         //gameObject.transform.localRotation = Quaternion.Euler(fireballanglex, fireballangley,0f);
         for (int i = 0; i < 1000f; i++)
         {
@@ -62,14 +66,14 @@ public class PlayerFireBall : MonoBehaviour
         }
     }
 
-    public void givelocation(Transform playerpos,Transform enemypos)
+    public void givelocation(Transform[] playerpos,Transform enemypos)
     {
         enemypostransfer = enemypos;
         playerpostransfer = playerpos;
     }
 
     //projectile being countered by the player
-    public void playerprojectilecountered(bool countered, Transform enemypos, Transform playerpos)
+    public void playerprojectilecountered(bool countered, Transform enemypos, Transform[] playerpos)
     {
         playerpostransfer = playerpos;
         enemypostransfer = enemypos;

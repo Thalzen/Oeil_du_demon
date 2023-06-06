@@ -53,7 +53,7 @@ MonoBehaviour:
   _playerfireball: {fileID: 8767566529334433763, guid: 59551dde297c16d4eaf9892f6303255f,
     type: 3}
   fireballanglex: 0
-  fireballangley: 270
+  fireballangley: 180
 --- !u!136 &7003352382368737995
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -8,7 +8,8 @@ public class EnemySpellCasting : MonoBehaviour
 {
     [SerializeField] private GameObject fireballtospawn;
     private GameObject Enemyfireball;
-    public Transform[] EnemyTargetPos;
+    public Transform[] playertargetpos;
+    public Transform enemypos;
     private GameObject spawnedfireball;
     [SerializeField] private GameObject EnemyShield;
     
@@ -24,7 +25,7 @@ public class EnemySpellCasting : MonoBehaviour
     public void Fireball()
     {
         spawnedfireball = Instantiate(fireballtospawn, gameObject.transform.position, Quaternion.identity);
-        spawnedfireball.GetComponent<EnemyFireBall>().StartCoroutine(spawnedfireball.GetComponent<EnemyFireBall>().enemyfireballmove(EnemyTargetPos[0],EnemyTargetPos[1]));
+        spawnedfireball.GetComponent<EnemyFireBall>().StartCoroutine(spawnedfireball.GetComponent<EnemyFireBall>().enemyfireballmove(enemypos,playertargetpos));
 
     }
 
