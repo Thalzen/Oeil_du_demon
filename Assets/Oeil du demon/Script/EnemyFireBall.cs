@@ -18,6 +18,8 @@ public class EnemyFireBall : MonoBehaviour
     private Transform playerpostranfer;
     private Transform enemypostransfer;
     private bool Countered;
+    [SerializeField] private float fireballanglex;
+    [SerializeField] private float fireballangley;
     
     public delegate void DamageEvent(float damage);
 
@@ -39,9 +41,12 @@ public class EnemyFireBall : MonoBehaviour
     {
         enemypostransfer = enemypos;
         playerpostranfer = playerpos;
+        
+        yield return new WaitForSeconds(2f);
         _fireballprefab.GetComponent<VisualEffect>().playRate = 4f;
-        _fireballprefab.transform.rotation = Quaternion.Euler(-90f,0,0);
-        gameObject.transform.localRotation = Quaternion.Euler(Random.Range(160,220), Random.Range(-30,30),0f);
+        gameObject.transform.rotation = Quaternion.Euler(0f,180,0);
+        _fireballprefab.transform.rotation = Quaternion.Euler(90f,0f,0);
+        gameObject.transform.localRotation = Quaternion.Euler(Random.Range(0,-90), Random.Range(90,270),0f);
         //gameObject.transform.localRotation = Quaternion.Euler(fireballanglex, fireballangley,0f);
         for (int i = 0; i < 1000f; i++)
         {
