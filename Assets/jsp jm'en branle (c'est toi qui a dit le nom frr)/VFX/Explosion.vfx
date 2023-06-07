@@ -20,7 +20,7 @@ MonoBehaviour:
     x: 378
     y: -1299
     width: 424
-    height: 1925
+    height: 1905
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -928,7 +928,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Texture2D, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"69f5e80cbe8b20c4b95af75a7e983f20","type":3}}'
+      m_SerializableObject: '{"obj":{"fileID":2800000,"guid":"0a6733ad373588a46aabf45340324ff9","type":3}}'
     m_Space: 2147483647
   m_Property:
     name: mainTexture
@@ -972,14 +972,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 081ffb0090424ba4cb05370a42ead6b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UIIgnoredErrors: []
-  m_Parent: {fileID: 0}
-  m_Children: []
-  m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
-  m_UISuperCollapsed: 0
-  opaqueRenderQueue: 0
-  transparentRenderQueue: 1
 --- !u!114 &8926484042661614991
 MonoBehaviour:
   m_ObjectHideFlags: 0

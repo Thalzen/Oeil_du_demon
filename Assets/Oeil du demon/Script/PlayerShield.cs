@@ -8,11 +8,12 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class PlayerShield : MonoBehaviour
 {
-    [SerializeField] float InputThreshold = 0.1f;
+    float InputThreshold = 0.1f;
     public float HP = 30;
     public float MAXHP = 30;
     public Image _healthbar;
     private bool isPulsed;
+    private bool ButtonPressed = false;
 
     private void Start()
     {
@@ -32,12 +33,21 @@ public class PlayerShield : MonoBehaviour
 
     private void Update()
     {
+        
         InputHelpers.IsPressed(InputDevices.GetDeviceAtXRNode(XRNode.LeftHand), InputHelpers.Button.Trigger, out bool isPressed, InputThreshold);
-        if (isPressed && !isPulsed)
+        if (isPressed && !isPulsed && !ButtonPressed)
         {
             isPulsed = true;
+            ButtonPressed = isPressed;
             StartCoroutine(Pulse());
         }
+
+        if (!isPressed && ButtonPressed)
+        {
+            ButtonPressed = false;
+        }
+
+
     }
 
     public void TakingDamage(float damage)

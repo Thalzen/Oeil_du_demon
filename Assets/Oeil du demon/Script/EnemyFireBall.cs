@@ -77,7 +77,7 @@ public class EnemyFireBall : MonoBehaviour
         {
            GameObject spawnfireball = Instantiate(_playerfireball, gameObject.transform.position, quaternion.identity);
            spawnfireball.gameObject.GetComponent<PlayerFireBall>().playerprojectilecountered(true,enemypostransfer,playerpostranfer);
-           PlayerShieldDamage?.Invoke(_fireballdamage*4);
+           PlayerShieldDamage?.Invoke(_fireballdamage);
            Destroy(gameObject);
             
         }

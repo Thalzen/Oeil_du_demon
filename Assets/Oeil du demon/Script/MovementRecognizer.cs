@@ -23,7 +23,7 @@ public class MovementRecognizer : MonoBehaviour
     public string newGestureName;
     private bool isMoving = false;
 
-    public float recognitionThreshold = 0.95f;
+    public float recognitionThreshold = 0.94f;
     [SerializeField] private GestureList _GestureList;
 
     [System.Serializable]
