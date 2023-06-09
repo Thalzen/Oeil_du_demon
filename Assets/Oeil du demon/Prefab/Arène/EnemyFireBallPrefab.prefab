@@ -54,6 +54,10 @@ MonoBehaviour:
     type: 3}
   fireballanglex: 0
   fireballangley: 180
+  tinyExplosion: {fileID: 1337198075554910, guid: 2e2a0633e6c421f4cac4bcdf09a57649,
+    type: 3}
+  forceExplosion: {fileID: 462671940400620826, guid: 17a7679691ab2f941877683ceb606b86,
+    type: 3}
 --- !u!136 &7003352382368737995
 CapsuleCollider:
   m_ObjectHideFlags: 0

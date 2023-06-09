@@ -29,7 +29,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 73.2574, y: 0, z: 10.302156}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3209109325173957802}
   m_Father: {fileID: 0}
@@ -88,6 +88,10 @@ MonoBehaviour:
   fireballanglex: 0
   fireballangley: 0
   fireballdirection: {fileID: 0}
+  tinyExplosion: {fileID: 1337198075554910, guid: 2e2a0633e6c421f4cac4bcdf09a57649,
+    type: 3}
+  forceExplosion: {fileID: 462671940400620826, guid: d948b79147ef50a48a2a98676685c2d6,
+    type: 3}
 --- !u!1001 &3071213158343455642
 PrefabInstance:
   m_ObjectHideFlags: 0

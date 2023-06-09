@@ -20,6 +20,8 @@ public class EnemyFireBall : MonoBehaviour
     private bool Countered;
     [SerializeField] private float fireballanglex;
     [SerializeField] private float fireballangley;
+    [SerializeField] private GameObject tinyExplosion;
+    [SerializeField] private GameObject forceExplosion;
     
     public delegate void DamageEvent(float damage);
 

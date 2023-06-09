@@ -26,6 +26,8 @@ public class PlayerFireBall : MonoBehaviour
     [SerializeField] private float fireballanglex;
     [SerializeField] private float fireballangley;
     [SerializeField] private GameObject fireballdirection;
+    [SerializeField] private GameObject tinyExplosion;
+    [SerializeField] private GameObject forceExplosion;
 
     public delegate void DamageEvent(float damage);
 
@@ -88,6 +90,7 @@ public class PlayerFireBall : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             DamageDealt?.Invoke(_fireballdamage);
+            Destroy(Instantiate(tinyExplosion,transform.position,quaternion.identity),2);
             Destroy(gameObject);
         }
 
@@ -98,11 +101,10 @@ public class PlayerFireBall : MonoBehaviour
                 GameObject spawnfireball = Instantiate(_enemyfireball, gameObject.transform.position, quaternion.identity);
                 spawnfireball.gameObject.GetComponent<EnemyFireBall>().enemyprojectilecountered(true,playerpostransfer,enemypostransfer);
                 EnemyShieldDamage?.Invoke(_fireballdamage*4);
+                Destroy(Instantiate(forceExplosion,transform.position,quaternion.identity),2);
                 Destroy(gameObject);
             }
         }
-        
-        
-        
+
     }
 }
