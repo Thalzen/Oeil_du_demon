@@ -9,13 +9,16 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class SpellCasting : MonoBehaviour
 {
     [SerializeField] private GameObject fireballtospawn;
+    [SerializeField] private GameObject elecballtospawn;
     private GameObject playerfireball;
+    private GameObject playerelecball;
     [SerializeField]private Transform[] playerTargetPos;
     [SerializeField] private Transform enemyPos;
     private GameObject spawnedfireball;
+    private GameObject spawnedelecball;
     [SerializeField] private GameObject _shield;
     private bool shieldup;
-    [SerializeField] private List<GameObject> listFireball;
+    [SerializeField] private List<GameObject> listball;
     private const float InputThreshold = 0.1f;
     private bool isShooting;
 
@@ -40,6 +43,12 @@ public class SpellCasting : MonoBehaviour
             Fireball();
         }
 
+        if (spell == "Elecball")
+        {
+            
+            ElecBall();
+        }
+
         if (spell == "Shield")
         {
             Shield();
@@ -50,8 +59,17 @@ public class SpellCasting : MonoBehaviour
     private void Fireball()
     {
         spawnedfireball = Instantiate(fireballtospawn, gameObject.transform.position,Quaternion.identity);
-        listFireball.Insert(0,spawnedfireball);
+        listball.Insert(0,spawnedfireball);
         spawnedfireball.GetComponent<PlayerFireBall>().givelocation(playerTargetPos,enemyPos);
+
+        //StartCoroutine(gatlingfireball());
+    }
+    
+    private void ElecBall()
+    {
+        spawnedelecball = Instantiate(elecballtospawn, gameObject.transform.position,Quaternion.identity);
+        listball.Insert(0,spawnedelecball);
+        spawnedelecball.GetComponent<PlayerElecBall>().givelocation(playerTargetPos,enemyPos);
 
         //StartCoroutine(gatlingfireball());
     }
@@ -67,17 +85,36 @@ public class SpellCasting : MonoBehaviour
 
     private IEnumerator Shootfireball()
     {
-        if (listFireball.Count != 0)
+        if (listball.Count != 0)
         {
-            for (int i = listFireball.Count-1; i >= 0; i--)
+            for (int i = listball.Count-1; i >= 0; i--)
             {
-                if (listFireball[i].GetComponent<PlayerFireBall>().Fired == false)
+
+                if (listball[i].tag == "PlayerElecball")
                 {
-                    listFireball[i].GetComponent<PlayerFireBall>().Fired = true;
-                    listFireball[i].GetComponent<PlayerFireBall>().StartCoroutine(listFireball[i].GetComponent<PlayerFireBall>().playerfireballmove());
-                    listFireball.RemoveAt(i);
-                    yield return new WaitForSeconds(0.2f);
+                    if (listball[i].GetComponent<PlayerElecBall>().Fired == false)
+                    {
+                        listball[i].GetComponent<PlayerElecBall>().Fired = true;
+                        listball[i].GetComponent<PlayerElecBall>().StartCoroutine(listball[i].GetComponent<PlayerElecBall>().playerfireballmove());
+                        listball.RemoveAt(i);
+                        yield return new WaitForSeconds(0.2f);
+                    }
+                    
                 }
+
+                else if (listball[i].tag == "PlayerFireball")
+                {
+                    if (listball[i].GetComponent<PlayerFireBall>().Fired == false)
+                    {
+                        listball[i].GetComponent<PlayerFireBall>().Fired = true;
+                        listball[i].GetComponent<PlayerFireBall>().StartCoroutine(listball[i].GetComponent<PlayerFireBall>().playerfireballmove());
+                        listball.RemoveAt(i);
+                        yield return new WaitForSeconds(0.2f);
+                    }
+                    
+                }
+                
+                
             
             }
             //listFireball.Clear();

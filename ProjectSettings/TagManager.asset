@@ -11,6 +11,7 @@ TagManager:
   - PlayerShield
   - PlayerFireball
   - EnemyShield
+  - PlayerElecball
   layers:
   - Default
   - TransparentFX
