@@ -9,12 +9,12 @@ using Random = UnityEngine.Random;
 
 public class EnemyElecBall : MonoBehaviour
 {
-    private float _fireballdamage = 10f;
+    private float _elecballdamage = 1f;
     [SerializeField] private float BallSpeed = 0.2f;
     [SerializeField] private float _time = 1f;
     [SerializeField] private float _rotationspeed = 5f;
-    private GameObject _fireballprefab;
-    [SerializeField] private GameObject _playerfireball;
+    private GameObject _elecballprefab;
+    [SerializeField] private GameObject _playerelecball;
     private Transform[] playerpostranfer;
     private Transform enemypostransfer;
     private bool Countered;
@@ -31,7 +31,8 @@ public class EnemyElecBall : MonoBehaviour
 
     private void Awake()
     {
-        _fireballprefab = gameObject.transform.GetChild(0).gameObject;
+        //_elecballprefab = gameObject.transform.GetChild(0).gameObject;
+        _elecballprefab = gameObject;
     }
 
     private void Update()
@@ -46,7 +47,7 @@ public class EnemyElecBall : MonoBehaviour
         
         //_fireballprefab.GetComponent<VisualEffect>().playRate = 4f;
         gameObject.transform.rotation = Quaternion.Euler(0f,180,0);
-        _fireballprefab.transform.rotation = Quaternion.Euler(90f,0f,0);
+        _elecballprefab.transform.rotation = Quaternion.Euler(90f,0f,0);
         gameObject.transform.localRotation = Quaternion.Euler(Random.Range(0,-90), Random.Range(90,270),0f);
         //gameObject.transform.localRotation = Quaternion.Euler(fireballanglex, fireballangley,0f);
         int selectedpos = Random.Range(0,4);
@@ -77,9 +78,10 @@ public class EnemyElecBall : MonoBehaviour
         }
         if (other.gameObject.CompareTag("PlayerShield"))
         {
-           GameObject spawnfireball = Instantiate(_playerfireball, gameObject.transform.position, quaternion.identity);
-           spawnfireball.gameObject.GetComponent<PlayerFireBall>().playerprojectilecountered(true,enemypostransfer,playerpostranfer);
-           PlayerShieldDamage?.Invoke(_fireballdamage);
+           GameObject spawnelecball = Instantiate(_playerelecball, gameObject.transform.position, quaternion.identity);
+           spawnelecball.gameObject.GetComponent<PlayerElecBall>().playerprojectilecountered(true,enemypostransfer,playerpostranfer);
+           PlayerShieldDamage?.Invoke(_elecballdamage*10);
+           Destroy(Instantiate(forceExplosion,transform.position,quaternion.identity),2);
            Destroy(gameObject);
             
         }

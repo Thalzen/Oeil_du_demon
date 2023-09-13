@@ -77,7 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b59c94a29a7623942a728d6af218564a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fireballdamage: 2.5
+  _fireballdamage: 1
   InputThreshold: 0.1
   BallSpeed: 0.2
   _time: 1

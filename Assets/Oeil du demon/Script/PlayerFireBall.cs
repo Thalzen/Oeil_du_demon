@@ -11,7 +11,7 @@ using Random = UnityEngine.Random;
 
 public class PlayerFireBall : MonoBehaviour
 {
-    [SerializeField] public float _fireballdamage = 2.5f;
+    [SerializeField] public float _fireballdamage = 1f;
     [SerializeField] float InputThreshold = 0.1f;
     
     [SerializeField] private float BallSpeed = 0.2f;
@@ -89,7 +89,7 @@ public class PlayerFireBall : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            DamageDealt?.Invoke(_fireballdamage);
+            DamageDealt?.Invoke(_fireballdamage*10);
             Destroy(Instantiate(tinyExplosion,transform.position,quaternion.identity),2);
             Destroy(gameObject);
         }
@@ -100,7 +100,7 @@ public class PlayerFireBall : MonoBehaviour
             {
                 GameObject spawnfireball = Instantiate(_enemyfireball, gameObject.transform.position, quaternion.identity);
                 spawnfireball.gameObject.GetComponent<EnemyFireBall>().enemyprojectilecountered(true,playerpostransfer,enemypostransfer);
-                EnemyShieldDamage?.Invoke(_fireballdamage*4);
+                EnemyShieldDamage?.Invoke(_fireballdamage);
                 Destroy(Instantiate(forceExplosion,transform.position,quaternion.identity),2);
                 Destroy(gameObject);
             }

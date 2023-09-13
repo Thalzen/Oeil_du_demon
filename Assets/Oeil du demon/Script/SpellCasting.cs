@@ -78,7 +78,7 @@ public class SpellCasting : MonoBehaviour
     {
         PlayerShield playerShield = _shield.GetComponent<PlayerShield>();
         _shield.SetActive(true);
-        playerShield.HP = 30f;
+        playerShield.HP = 10f;
         playerShield._healthbar.fillAmount = playerShield.HP / playerShield.MAXHP;
         
     }

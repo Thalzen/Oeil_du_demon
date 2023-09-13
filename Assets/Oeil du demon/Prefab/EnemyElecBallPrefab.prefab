@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 3026221072095130472}
   - component: {fileID: 3026221072095130473}
   - component: {fileID: 3026221072095130478}
-  - component: {fileID: 8931674018828716291}
+  - component: {fileID: -3198684303345633697}
+  - component: {fileID: 2983181386558703931}
   m_Layer: 0
   m_Name: EnemyElecBallPrefab
-  m_TagString: Untagged
+  m_TagString: PlayerElecball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,7 +129,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.32975578
   m_Center: {x: -0.008661509, y: -0.012452602, z: -0.003824234}
---- !u!114 &8931674018828716291
+--- !u!114 &-3198684303345633697
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,12 +144,30 @@ MonoBehaviour:
   BallSpeed: 0.2
   _time: 1
   _rotationspeed: 5
-  _playerfireball: {fileID: 3026221072095130474, guid: 97050212afeb8cf4fa9b1e8ae876f204,
+  _playerelecball: {fileID: 3026221072095130474, guid: 97050212afeb8cf4fa9b1e8ae876f204,
     type: 3}
   fireballanglex: 0
   fireballangley: 0
-  tinyExplosion: {fileID: 0}
-  forceExplosion: {fileID: 0}
+  tinyExplosion: {fileID: 462671940400620826, guid: 17a7679691ab2f941877683ceb606b86,
+    type: 3}
+  forceExplosion: {fileID: 462671940400620826, guid: 17a7679691ab2f941877683ceb606b86,
+    type: 3}
+--- !u!54 &2983181386558703931
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3026221072095130474}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &3026221072828907362
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,7 +209,7 @@ VisualEffect:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3026221072828907362}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: 8642718b5bb4dea4fad92ec8210f365d, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: b5aa14d9142b8c546a641b220d97b663, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0
@@ -300,7 +319,7 @@ VisualEffect:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3026221072835104150}
   m_Enabled: 1
-  m_Asset: {fileID: 8926484042661614526, guid: 9736eca9e381b0145882c4c17bb8d582, type: 3}
+  m_Asset: {fileID: 8926484042661614526, guid: 5f12f06b82665e54caec417f747965b5, type: 3}
   m_InitialEventName: OnPlay
   m_InitialEventNameOverriden: 0
   m_StartSeed: 0

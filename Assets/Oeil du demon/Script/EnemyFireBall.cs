@@ -9,7 +9,7 @@ using Random = UnityEngine.Random;
 
 public class EnemyFireBall : MonoBehaviour
 {
-    private float _fireballdamage = 10f;
+    private float _fireballdamage = 1f;
     [SerializeField] private float BallSpeed = 0.2f;
     [SerializeField] private float _time = 1f;
     [SerializeField] private float _rotationspeed = 5f;
@@ -22,6 +22,7 @@ public class EnemyFireBall : MonoBehaviour
     [SerializeField] private float fireballangley;
     [SerializeField] private GameObject tinyExplosion;
     [SerializeField] private GameObject forceExplosion;
+    [SerializeField] private Transform _spawnpos;
     
     public delegate void DamageEvent(float damage);
 
@@ -80,6 +81,7 @@ public class EnemyFireBall : MonoBehaviour
            GameObject spawnfireball = Instantiate(_playerfireball, gameObject.transform.position, quaternion.identity);
            spawnfireball.gameObject.GetComponent<PlayerFireBall>().playerprojectilecountered(true,enemypostransfer,playerpostranfer);
            PlayerShieldDamage?.Invoke(_fireballdamage);
+           Destroy(Instantiate(forceExplosion,_spawnpos.position,quaternion.identity),2);
            Destroy(gameObject);
             
         }

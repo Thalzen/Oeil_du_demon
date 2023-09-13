@@ -8,8 +8,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class EnemyShield : MonoBehaviour
 {
-    public float HP = 30;
-    public float MAXHP = 30;
+    public float HP = 10;
+    public float MAXHP = 10;
     public Image _healthbar;
     private bool isPulsed;
 
@@ -22,11 +22,13 @@ public class EnemyShield : MonoBehaviour
     private void OnEnable()
     {
         PlayerFireBall.EnemyShieldDamage += TakingDamage;
+        PlayerElecBall.EnemyShieldDamage += TakingDamage;
     }
 
     private void OnDisable()
     {
         PlayerFireBall.EnemyShieldDamage -= TakingDamage;
+        PlayerElecBall.EnemyShieldDamage -= TakingDamage;
     }
     
     public void TakingDamage(float damage)

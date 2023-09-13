@@ -11,14 +11,14 @@ using Random = UnityEngine.Random;
 
 public class PlayerElecBall : MonoBehaviour
 {
-    [SerializeField] public float _elecballdamage = 2.5f;
+    [SerializeField] public float _elecballdamage = 1f;
     [SerializeField] float InputThreshold = 0.1f;
     
     [SerializeField] private float BallSpeed = 0.2f;
     [SerializeField] private float _time = 1f;
     [SerializeField] private float _rotationspeed = 5f;
     private GameObject _elecballprefab;
-    [SerializeField] private GameObject _enemyfireball;
+    [SerializeField] private GameObject _enemyelecball;
     private Transform enemypostransfer;
     private Transform[] playerpostransfer;
     public bool Fired;
@@ -99,9 +99,9 @@ public class PlayerElecBall : MonoBehaviour
         {
             if (other.gameObject.CompareTag("EnemyShield"))
             {
-                GameObject spawnfireball = Instantiate(_enemyfireball, gameObject.transform.position, quaternion.identity);
-                spawnfireball.gameObject.GetComponent<EnemyFireBall>().enemyprojectilecountered(true,playerpostransfer,enemypostransfer);
-                EnemyShieldDamage?.Invoke(_elecballdamage*4);
+                GameObject spawnelecball = Instantiate(_enemyelecball, gameObject.transform.position, quaternion.identity);
+                spawnelecball.gameObject.GetComponent<EnemyElecBall>().enemyprojectilecountered(true,playerpostransfer,enemypostransfer);
+                EnemyShieldDamage?.Invoke(_elecballdamage*10);
                 Destroy(Instantiate(forceExplosion,transform.position,quaternion.identity),2);
                 Destroy(gameObject);
             }

@@ -33,7 +33,7 @@ public class EnemySpellCasting : MonoBehaviour
     {
         EnemyShield enemyShield = EnemyShield.GetComponent<EnemyShield>();
         EnemyShield.SetActive(true);
-        enemyShield.HP = 30f;
+        enemyShield.HP = 10f;
         enemyShield._healthbar.fillAmount = enemyShield.HP / enemyShield.MAXHP;
        
     }

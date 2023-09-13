@@ -9,8 +9,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class PlayerShield : MonoBehaviour
 {
     float InputThreshold = 0.1f;
-    public float HP = 30;
-    public float MAXHP = 30;
+    public float HP = 10;
+    public float MAXHP = 10;
     public Image _healthbar;
     private bool isPulsed;
     private bool ButtonPressed = false;
