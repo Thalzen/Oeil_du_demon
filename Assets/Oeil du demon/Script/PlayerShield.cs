@@ -24,11 +24,13 @@ public class PlayerShield : MonoBehaviour
     private void OnEnable()
     {
         EnemyFireBall.PlayerShieldDamage += TakingDamage;
+        EnemyElecBall.PlayerShieldDamage += TakingDamage;
     }
 
     private void OnDisable()
     {
         EnemyFireBall.PlayerShieldDamage -= TakingDamage;
+        EnemyElecBall.PlayerShieldDamage -= TakingDamage;
     }
 
     private void Update()
@@ -42,11 +44,8 @@ public class PlayerShield : MonoBehaviour
             StartCoroutine(Pulse());
         }
 
-        if (!isPressed && ButtonPressed)
-        {
+        if (!isPressed && ButtonPressed) 
             ButtonPressed = false;
-        }
-
 
     }
 
@@ -67,7 +66,7 @@ public class PlayerShield : MonoBehaviour
     
     private IEnumerator Pulse()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
         isPulsed = false;
     }
 

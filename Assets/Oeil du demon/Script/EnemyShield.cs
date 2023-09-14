@@ -41,7 +41,9 @@ public class EnemyShield : MonoBehaviour
 
         if (HP <= 0f)
         {
+            //_healthbar.gameObject.SetActive(false);
             gameObject.SetActive(false);
+            
         }
         
     }
