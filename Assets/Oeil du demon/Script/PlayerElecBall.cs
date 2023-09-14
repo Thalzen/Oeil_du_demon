@@ -94,17 +94,19 @@ public class PlayerElecBall : MonoBehaviour
             Destroy(Instantiate(tinyExplosion,transform.position,quaternion.identity),2);
             Destroy(gameObject);
         }
+        
+        if (other.gameObject.CompareTag("EnemyShield"))
+        {
+            //GameObject spawnelecball = Instantiate(_enemyelecball, gameObject.transform.position, quaternion.identity);
+            //spawnelecball.gameObject.GetComponent<EnemyElecBall>().enemyprojectilecountered(true,playerpostransfer,enemypostransfer);
+            EnemyShieldDamage?.Invoke(_elecballdamage*10);
+            Destroy(Instantiate(forceExplosion,transform.position,quaternion.identity),2);
+            Destroy(gameObject);
+        }
 
         if (Random.Range(0, 100) >= 20)
         {
-            if (other.gameObject.CompareTag("EnemyShield"))
-            {
-                GameObject spawnelecball = Instantiate(_enemyelecball, gameObject.transform.position, quaternion.identity);
-                spawnelecball.gameObject.GetComponent<EnemyElecBall>().enemyprojectilecountered(true,playerpostransfer,enemypostransfer);
-                EnemyShieldDamage?.Invoke(_elecballdamage*10);
-                Destroy(Instantiate(forceExplosion,transform.position,quaternion.identity),2);
-                Destroy(gameObject);
-            }
+            
         }
 
     }

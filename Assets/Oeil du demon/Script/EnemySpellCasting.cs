@@ -35,6 +35,7 @@ public class EnemySpellCasting : MonoBehaviour
         EnemyShield.SetActive(true);
         enemyShield.HP = 10f;
         enemyShield._healthbar.fillAmount = enemyShield.HP / enemyShield.MAXHP;
+        enemyShield.gameObject.GetComponent<Renderer>().material.SetFloat("_CrackBlend", 1-enemyShield._healthbar.fillAmount );
        
     }
 
