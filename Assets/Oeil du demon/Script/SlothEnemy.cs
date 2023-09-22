@@ -20,28 +20,76 @@ public class SlothEnemy : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(StartPattern());
 
-        StartCoroutine(Pattern());
     }
 
     private void OnEnable()
     {
         PlayerFireBall.DamageDealt += TakingDamage;
+        
     }
 
     private void OnDisable()
     {
         PlayerFireBall.DamageDealt -= TakingDamage;
+        
+    }
+
+    private IEnumerator ChoosePattern()
+    {
+        
+        if (HP >= 750f)
+        {
+            StartCoroutine(PatternAbove75());
+        }
+        else if (HP >= 500f)
+        {
+            StartCoroutine(PatternAbove50());
+        }
+        else if (HP >= 250f)
+        {
+            StartCoroutine(PatternAbove25());
+        }
+
+        yield return null;
+
     }
 
 
-    private IEnumerator Pattern()
-    { 
+    private IEnumerator PatternAbove75()
+    {
+        _enemySpellCasting.Fireball();
+        yield return new WaitForSeconds(2f);
+        StartCoroutine(ChoosePattern());
+    }
+    
+    private IEnumerator PatternAbove50()
+    {
+        _enemySpellCasting.Fireball();
+        yield return new WaitForSeconds(0.3f);
+        _enemySpellCasting.Fireball();
+        yield return new WaitForSeconds(2f);
+        StartCoroutine(ChoosePattern());
+    }
+    
+    private IEnumerator PatternAbove25()
+    {
+        _enemySpellCasting.Fireball();
+        yield return new WaitForSeconds(0.3f);
+        _enemySpellCasting.Fireball();
+        yield return new WaitForSeconds(0.3f);
+        _enemySpellCasting.Fireball();
+        yield return new WaitForSeconds(2f);
+        StartCoroutine(ChoosePattern());
+    }
+
+    private IEnumerator StartPattern()
+    {
         yield return new WaitForSeconds(1f);
-       _enemySpellCasting.Fireball();
-        yield return new WaitForSeconds(3f);
         _enemySpellCasting.SpawnShield();
-        StartCoroutine(Pattern());
+        yield return new WaitForSeconds(3f);
+        StartCoroutine(ChoosePattern());
     }
 
     

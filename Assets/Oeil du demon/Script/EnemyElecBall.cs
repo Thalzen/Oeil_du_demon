@@ -26,6 +26,7 @@ public class EnemyElecBall : MonoBehaviour
     public delegate void DamageEvent(float damage);
 
     public static event DamageEvent PlayerShieldDamage;
+    public static event DamageEvent PlayerDamage;
     
     
 
@@ -74,6 +75,7 @@ public class EnemyElecBall : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            PlayerDamage?.Invoke(_elecballdamage);
             Destroy(gameObject);
         }
         if (other.gameObject.CompareTag("PlayerShield"))

@@ -62,6 +62,7 @@ public class PlayerShield : MonoBehaviour
             gameObject.SetActive(false);
         }
         
+        
     }
     
     private IEnumerator Pulse()

@@ -12,11 +12,18 @@ public class EnemySpellCasting : MonoBehaviour
     public Transform enemypos;
     private GameObject spawnedfireball;
     [SerializeField] private GameObject EnemyShield;
+    private bool _shieldRefreshing = false;
     
 
-    private void Start()
+    
+    private void OnEnable()
     {
-        
+        global::EnemyShield.EnemyShieldCheck += RefreshShield;
+    }
+    
+    private void OnDisable()
+    {
+        global::EnemyShield.EnemyShieldCheck -= RefreshShield;
     }
 
 
@@ -37,6 +44,25 @@ public class EnemySpellCasting : MonoBehaviour
         enemyShield._healthbar.fillAmount = enemyShield.HP / enemyShield.MAXHP;
         enemyShield.gameObject.GetComponent<Renderer>().material.SetFloat("_CrackBlend", 1-enemyShield._healthbar.fillAmount );
        
+    }
+
+    private IEnumerator RefreshShieldCO()
+    {
+        yield return new WaitForSeconds(4f);
+        SpawnShield();
+        _shieldRefreshing = false;
+
+    }
+
+    private void RefreshShield()
+    {
+        if (!_shieldRefreshing)
+        {
+            _shieldRefreshing = true;
+            StartCoroutine(RefreshShieldCO());
+        }
+
+        
     }
 
 }

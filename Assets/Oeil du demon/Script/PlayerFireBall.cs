@@ -28,6 +28,8 @@ public class PlayerFireBall : MonoBehaviour
     [SerializeField] private GameObject fireballdirection;
     [SerializeField] private GameObject tinyExplosion;
     [SerializeField] private GameObject forceExplosion;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _pew;
 
     public delegate void DamageEvent(float damage);
 
@@ -38,6 +40,7 @@ public class PlayerFireBall : MonoBehaviour
 
     private void Awake()
     {
+        _audioSource = GetComponent<AudioSource>();
         _fireballprefab = gameObject.transform.GetChild(0).gameObject;
     }
 
@@ -56,6 +59,7 @@ public class PlayerFireBall : MonoBehaviour
         _fireballprefab.GetComponent<VisualEffect>().playRate = 4f;
         _fireballprefab.transform.rotation = Quaternion.Euler(-90,0,0);
         gameObject.transform.localRotation = Quaternion.Euler(Random.Range(-20,20), Random.Range(-50,50),0f);
+        _audioSource.PlayOneShot(_pew);
         //gameObject.transform.localRotation = Quaternion.Euler(fireballanglex, fireballangley,0f);
         //gameObject.transform.localRotation = Quaternion.Euler(fireballanglex, fireballangley,0f);
         for (int i = 0; i < 1000f; i++)
@@ -94,17 +98,18 @@ public class PlayerFireBall : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (Random.Range(0, 100) >= 20)
+        if (other.gameObject.CompareTag("EnemyShield"))
         {
-            if (other.gameObject.CompareTag("EnemyShield"))
-            {
-                GameObject spawnfireball = Instantiate(_enemyfireball, gameObject.transform.position, quaternion.identity);
-                spawnfireball.gameObject.GetComponent<EnemyFireBall>().enemyprojectilecountered(true,playerpostransfer,enemypostransfer);
-                EnemyShieldDamage?.Invoke(_fireballdamage);
-                Destroy(Instantiate(forceExplosion,transform.position,quaternion.identity),2);
-                Destroy(gameObject);
-            }
+            GameObject spawnfireball = Instantiate(_enemyfireball, gameObject.transform.position, quaternion.identity);
+            spawnfireball.gameObject.GetComponent<EnemyFireBall>().enemyprojectilecountered(true,playerpostransfer,enemypostransfer);
+            EnemyShieldDamage?.Invoke(_fireballdamage);
+            Destroy(Instantiate(forceExplosion,transform.position,quaternion.identity),2);
+            Destroy(gameObject);
         }
+        // if (Random.Range(0, 100) >= 20)
+        // {
+        //     
+        // }
 
     }
 }

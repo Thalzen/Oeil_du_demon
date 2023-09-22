@@ -27,6 +27,7 @@ public class EnemyFireBall : MonoBehaviour
     public delegate void DamageEvent(float damage);
 
     public static event DamageEvent PlayerShieldDamage;
+    public static event DamageEvent PlayerDamage;
     
     
 
@@ -74,6 +75,7 @@ public class EnemyFireBall : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            PlayerDamage?.Invoke(_fireballdamage*10f);
             Destroy(gameObject);
         }
         if (other.gameObject.CompareTag("PlayerShield"))

@@ -14,6 +14,10 @@ public class EnemyShield : MonoBehaviour
     private bool isPulsed;
     [SerializeField] private Material _shieldmat;
     
+    public delegate void ShieldEvent();
+
+    public static event ShieldEvent EnemyShieldCheck;
+    
 
     private void Start()
     {
@@ -40,6 +44,12 @@ public class EnemyShield : MonoBehaviour
             HP -= damage;
             _healthbar.fillAmount = HP / MAXHP;
             gameObject.GetComponent<Renderer>().material.SetFloat("_CrackBlend", 1-_healthbar.fillAmount );
+            if (HP != MAXHP)
+            {
+                EnemyShieldCheck?.Invoke();
+            }
+
+            
         }
 
         if (HP <= 0f)
