@@ -15,10 +15,11 @@ public class MovementRecognizer : MonoBehaviour
     public XRNode inputSource;
     public InputHelpers.Button inputButton;
     public float InputThreshold = 0.1f;
-    public Transform movementSource;
+    public GameObject movementSource;
 
     public float newPositionThresholdDistance = 0.05f;
     public GameObject debugSpherePrefab;
+    public GameObject trail;
     public bool creationMode = true;
     public string newGestureName;
     private bool isMoving = false;
@@ -34,6 +35,7 @@ public class MovementRecognizer : MonoBehaviour
     private List<Gesture> trainingSet = new List<Gesture>();
     private List<Vector3> positionsList = new List<Vector3>();
     private List<GameObject> Spheretodestroy = new List<GameObject>();
+    private GameObject _spawnedTrail;
 
     private void Start()
     {
@@ -70,18 +72,26 @@ public class MovementRecognizer : MonoBehaviour
         
         isMoving = true;
         positionsList.Clear();
-        positionsList.Add(movementSource.position);
-         
-        Spheretodestroy.Add(Instantiate(debugSpherePrefab, movementSource.position, quaternion.identity)); 
+        positionsList.Add(movementSource.transform.position);
+
+        GameObject spawnedtrail; 
+        _spawnedTrail = Instantiate(trail, movementSource.transform.position, quaternion.identity);
+        _spawnedTrail.transform.parent = movementSource.transform;
+
+        //Spheretodestroy.Add(Instantiate(debugSpherePrefab, movementSource.position, quaternion.identity)); 
     }
 
     void EndMovement()
     {
-        foreach (GameObject gameObject in Spheretodestroy)
-        {
-            Destroy((gameObject));
-        }
-        Spheretodestroy.Clear();
+        // foreach (GameObject gameObject in Spheretodestroy)
+        // {
+        //     Destroy((gameObject));
+        // }
+        //Spheretodestroy.Clear();
+
+        _spawnedTrail.transform.parent = null;
+        Destroy(_spawnedTrail,1.5f);
+        
         isMoving = false;
         PDollarGestureRecognizer.Point[] pointArray = new PDollarGestureRecognizer.Point[positionsList.Count];
 
@@ -121,10 +131,10 @@ public class MovementRecognizer : MonoBehaviour
     {
 
         Vector3 lastPosition = positionsList[positionsList.Count - 1];
-        if (Vector3.Distance(movementSource.position,lastPosition) > newPositionThresholdDistance)
+        if (Vector3.Distance(movementSource.transform.position,lastPosition) > newPositionThresholdDistance)
         {
-            positionsList.Add(movementSource.position);
-            Spheretodestroy.Add(Instantiate(debugSpherePrefab, movementSource.position, quaternion.identity));
+            positionsList.Add(movementSource.transform.position);
+            //Spheretodestroy.Add(Instantiate(debugSpherePrefab, movementSource.position, quaternion.identity));
         }
         
     }
