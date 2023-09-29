@@ -17,29 +17,29 @@ public class Stele : MonoBehaviour
     private bool _Pressed;
     private bool _ButtonPressed;
 
-    private void Update()
-    {
-        InputHelpers.IsPressed(InputDevices.GetDeviceAtXRNode(inputSource), inputButton, out bool isPressed, InputThreshold);
-        
-        if (isPressed && !_Pressed)
-        {
-            _Pressed = isPressed;
-            if (GetComponent<Renderer>().material.GetTexture("_EmissionMap").name == "Arena")
-            {
-                ChangeScene("Arena");
-            }
-            else if (GetComponent<Renderer>().material.GetTexture("_EmissionMap").name == "Quitter")
-            {
-                Application.Quit();
-            }
-            
-            
-            
-        }
-    
-        if (!isPressed && _Pressed) 
-            _Pressed = false;
-    }
+    // private void Update()
+    // {
+    //     InputHelpers.IsPressed(InputDevices.GetDeviceAtXRNode(inputSource), inputButton, out bool isPressed, InputThreshold);
+    //     
+    //     if (isPressed && !_Pressed)
+    //     {
+    //         _Pressed = isPressed;
+    //         if (GetComponent<Renderer>().material.GetTexture("_EmissionMap").name == "Arena")
+    //         {
+    //             ChangeScene("Arena");
+    //         }
+    //         else if (GetComponent<Renderer>().material.GetTexture("_EmissionMap").name == "Quitter")
+    //         {
+    //             Application.Quit();
+    //         }
+    //         
+    //         
+    //         
+    //     }
+    //
+    //     if (!isPressed && _Pressed) 
+    //         _Pressed = false;
+    // }
 
     public void ChangeEmissive(Texture texture)
     {

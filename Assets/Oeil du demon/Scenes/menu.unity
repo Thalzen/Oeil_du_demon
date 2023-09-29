@@ -717,7 +717,7 @@ MonoBehaviour:
         m_MethodName: ChangeEmissive
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2800000, guid: 06724ab6c9da1cd4eb2f24ef97ddf13d,
+          m_ObjectArgument: {fileID: 2800000, guid: 1d0fb5d6084ca4244ab8347c7af96d9b,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
           m_IntArgument: 0
@@ -1343,13 +1343,13 @@ MonoBehaviour:
       - m_Target: {fileID: 3469287838668962723}
         m_TargetAssemblyTypeName: Stele, Assembly-CSharp
         m_MethodName: ChangeScene
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Arena
           m_BoolArgument: 0
         m_CallState: 2
   m_SelectExited:
@@ -1357,7 +1357,19 @@ MonoBehaviour:
       m_Calls: []
   m_Activated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3469287838668962723}
+        m_TargetAssemblyTypeName: Stele, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Arena
+          m_BoolArgument: 0
+        m_CallState: 2
   m_Deactivated:
     m_PersistentCalls:
       m_Calls: []
@@ -1418,11 +1430,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 43f71d63cdfe6574586536f6679e249f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -2074,7 +2086,7 @@ MonoBehaviour:
         m_MethodName: ChangeEmissive
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2800000, guid: 91b919cb2ae6b0042b162e77daaa9c7e,
+          m_ObjectArgument: {fileID: 2800000, guid: 912984658eea1754ca89da51c8681c51,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
           m_IntArgument: 0
