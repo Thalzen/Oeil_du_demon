@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SlothEnemy : MonoBehaviour
+public class DumEnemy : MonoBehaviour
 {
     [SerializeField]private float HP;
     [SerializeField]private float MAXHP;
@@ -14,15 +14,17 @@ public class SlothEnemy : MonoBehaviour
     private bool IsBlocking;
     [SerializeField]private Transform LeftHand;
     [SerializeField]private Transform RightHand;
-    [SerializeField]private EnemySpellCasting _enemySpellCasting;
-    [SerializeField] private Image _healthbar;
-    
+    [SerializeField]private EnemyDumSpellCasting _enemyDumSpellCasting;
+    [SerializeField]private Image _healthbar;
+    [SerializeField]private Toggle FireballBool;
     
     
 
     private void Start()
     {
-        StartCoroutine(StartPattern());
+        
+        //StartCoroutine(StartPattern());
+        
 
     }
 
@@ -40,19 +42,22 @@ public class SlothEnemy : MonoBehaviour
 
     private IEnumerator ChoosePattern()
     {
+        if (FireballBool.isOn)
+        {
+            if (HP >= 750f)
+            {
+                StartCoroutine(PatternAbove75());
+            }
+            else if (HP >= 500f)
+            {
+                StartCoroutine(PatternAbove50());
+            }
+            else if (HP >= 250f)
+            {
+                StartCoroutine(PatternAbove25());
+            }
+        }
         
-        if (HP >= 750f)
-        {
-            StartCoroutine(PatternAbove75());
-        }
-        else if (HP >= 500f)
-        {
-            StartCoroutine(PatternAbove50());
-        }
-        else if (HP >= 250f)
-        {
-            StartCoroutine(PatternAbove25());
-        }
 
         yield return null;
 
@@ -61,27 +66,27 @@ public class SlothEnemy : MonoBehaviour
 
     private IEnumerator PatternAbove75()
     {
-        _enemySpellCasting.Fireball();
+        _enemyDumSpellCasting.Fireball();
         yield return new WaitForSeconds(2f);
         StartCoroutine(ChoosePattern());
     }
     
     private IEnumerator PatternAbove50()
     {
-        _enemySpellCasting.Fireball();
+        _enemyDumSpellCasting.Fireball();
         yield return new WaitForSeconds(0.3f);
-        _enemySpellCasting.Fireball();
+        _enemyDumSpellCasting.Fireball();
         yield return new WaitForSeconds(2f);
         StartCoroutine(ChoosePattern());
     }
     
     private IEnumerator PatternAbove25()
     {
-        _enemySpellCasting.Fireball();
+        _enemyDumSpellCasting.Fireball();
         yield return new WaitForSeconds(0.3f);
-        _enemySpellCasting.Fireball();
+        _enemyDumSpellCasting.Fireball();
         yield return new WaitForSeconds(0.3f);
-        _enemySpellCasting.Fireball();
+        _enemyDumSpellCasting.Fireball();
         yield return new WaitForSeconds(2f);
         StartCoroutine(ChoosePattern());
     }
@@ -89,9 +94,17 @@ public class SlothEnemy : MonoBehaviour
     private IEnumerator StartPattern()
     {
         yield return new WaitForSeconds(1f);
-        _enemySpellCasting.SpawnShield();
-        yield return new WaitForSeconds(3f);
+        _enemyDumSpellCasting.SpawnShield();
+        yield return new WaitForSeconds(1f);
         StartCoroutine(ChoosePattern());
+        
+    }
+
+    public void Fireballenemyboolstart()
+    {
+
+        StartCoroutine(ChoosePattern());
+
     }
 
     
@@ -101,7 +114,6 @@ public class SlothEnemy : MonoBehaviour
     {
         HP -= damage;
         _healthbar.fillAmount = HP / MAXHP;
-        
         
     }
     

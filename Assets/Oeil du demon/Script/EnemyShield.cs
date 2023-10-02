@@ -44,10 +44,10 @@ public class EnemyShield : MonoBehaviour
             HP -= damage;
             _healthbar.fillAmount = HP / MAXHP;
             gameObject.GetComponent<Renderer>().material.SetFloat("_CrackBlend", 1-_healthbar.fillAmount );
-            if (HP != MAXHP)
-            {
-                EnemyShieldCheck?.Invoke();
-            }
+            // if (HP != MAXHP)
+            // {
+            //     EnemyShieldCheck?.Invoke();
+            // }
 
             
         }
@@ -55,6 +55,7 @@ public class EnemyShield : MonoBehaviour
         if (HP <= 0f)
         {
             //_healthbar.gameObject.SetActive(false);
+            EnemyShieldCheck?.Invoke();
             gameObject.SetActive(false);
             
         }
