@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
 
    private void TakingDamage(float damage)
    {
-       _audioSource.PlayOneShot(oof);
+       //_audioSource.PlayOneShot(oof);
        HP -= damage;
 
    }
