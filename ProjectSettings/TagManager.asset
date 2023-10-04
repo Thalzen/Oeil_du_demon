@@ -12,6 +12,9 @@ TagManager:
   - PlayerFireball
   - EnemyShield
   - PlayerElecball
+  - quitter
+  - options
+  - jouer
   layers:
   - Default
   - TransparentFX
@@ -20,7 +23,7 @@ TagManager:
   - Water
   - UI
   - "Train\xE9"
-  - 
+  - toit
   - 
   - 
   - 
