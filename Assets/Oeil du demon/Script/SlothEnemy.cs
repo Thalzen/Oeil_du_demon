@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class SlothEnemy : MonoBehaviour
@@ -16,8 +17,8 @@ public class SlothEnemy : MonoBehaviour
     [SerializeField]private Transform RightHand;
     [SerializeField]private EnemySpellCasting _enemySpellCasting;
     [SerializeField] private Image _healthbar;
-    
-    
+
+    public UnityEvent ChangetoCredit;
     
 
     private void Start()
@@ -53,6 +54,10 @@ public class SlothEnemy : MonoBehaviour
         {
             StartCoroutine(PatternAbove25());
         }
+        else
+        {
+            StartCoroutine(PatternLess25());
+        }
 
         yield return null;
 
@@ -86,6 +91,20 @@ public class SlothEnemy : MonoBehaviour
         StartCoroutine(ChoosePattern());
     }
 
+    private IEnumerator PatternLess25()
+    {
+        _enemySpellCasting.Fireball();
+        yield return new WaitForSeconds(0.3f);
+        _enemySpellCasting.Fireball();
+        yield return new WaitForSeconds(0.3f);
+        _enemySpellCasting.Fireball();
+        yield return new WaitForSeconds(0.3f);
+        _enemySpellCasting.Fireball();
+        yield return new WaitForSeconds(2f);
+        StartCoroutine(ChoosePattern());
+        
+    }
+
     private IEnumerator StartPattern()
     {
         yield return new WaitForSeconds(1f);
@@ -101,6 +120,10 @@ public class SlothEnemy : MonoBehaviour
     {
         HP -= damage;
         _healthbar.fillAmount = HP / MAXHP;
+        if (HP <= 0)
+        {
+            ChangetoCredit.Invoke();
+        }
         
         
     }

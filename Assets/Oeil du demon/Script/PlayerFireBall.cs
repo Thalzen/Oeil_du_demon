@@ -42,6 +42,8 @@ public class PlayerFireBall : MonoBehaviour
     {
         _audioSource = GetComponent<AudioSource>();
         _fireballprefab = gameObject.transform.GetChild(0).gameObject;
+        _fireballprefab.GetComponent<VisualEffect>().playRate = 0.5f;
+
     }
 
     private void Update()
