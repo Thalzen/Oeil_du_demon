@@ -2,8 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {  
@@ -14,6 +16,9 @@ public class Player : MonoBehaviour
    private AudioSource _audioSource;
    [SerializeField] private GameObject _vignette;
    public Volume volume;
+   [SerializeField] private Image _healthbar;
+   public UnityEvent GameOver;
+   
 
 
    private void OnEnable()
@@ -35,7 +40,12 @@ public class Player : MonoBehaviour
        _audioSource.PlayOneShot(oof);
        StartCoroutine(VignetteDamage());
        HP -= damage;
-       
+       _healthbar.fillAmount = HP / MAXHP;
+       if (HP <= 0)
+       {
+           GameOver.Invoke();
+       }
+
 
    }
 
