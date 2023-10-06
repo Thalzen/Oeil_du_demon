@@ -14,10 +14,13 @@ public class PlayerShield : MonoBehaviour
     public Image _healthbar;
     private bool isPulsed;
     private bool ButtonPressed = false;
+    [SerializeField] private AudioClip _parrysound;
+    [SerializeField] private AudioSource _audioSource;
+    private bool parrysoundisplaying;
 
     private void Start()
     {
-        
+        _audioSource = GetComponent<AudioSource>();
     }
 
 
@@ -71,4 +74,20 @@ public class PlayerShield : MonoBehaviour
         isPulsed = false;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        
+        if(other.CompareTag("EnemyFireball") && !parrysoundisplaying)
+        {
+            parrysoundisplaying = true;
+            StartCoroutine(playparrysound());
+        }
+    }
+
+    private IEnumerator playparrysound()
+    {
+        _audioSource.PlayOneShot(_parrysound);
+        yield return new WaitForSeconds(0.3f);
+        parrysoundisplaying = false;
+    }
 }

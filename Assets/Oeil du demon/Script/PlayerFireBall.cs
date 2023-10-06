@@ -61,7 +61,7 @@ public class PlayerFireBall : MonoBehaviour
         _fireballprefab.GetComponent<VisualEffect>().playRate = 4f;
         _fireballprefab.transform.rotation = Quaternion.Euler(-90,0,0);
         gameObject.transform.localRotation = Quaternion.Euler(Random.Range(-20,20), Random.Range(-50,50),0f);
-        //_audioSource.PlayOneShot(_pew);
+        _audioSource.PlayOneShot(_pew);
         //gameObject.transform.localRotation = Quaternion.Euler(fireballanglex, fireballangley,0f);
         //gameObject.transform.localRotation = Quaternion.Euler(fireballanglex, fireballangley,0f);
         for (int i = 0; i < 1000f; i++)

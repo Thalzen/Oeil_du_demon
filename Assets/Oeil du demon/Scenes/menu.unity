@@ -332,7 +332,7 @@ RectTransform:
   m_Children:
   - {fileID: 524606344}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 6.71, y: 0.494, z: 1.632}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -717,7 +717,7 @@ MonoBehaviour:
         m_MethodName: ChangeEmissive
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2800000, guid: 1d0fb5d6084ca4244ab8347c7af96d9b,
+          m_ObjectArgument: {fileID: 2800000, guid: e65b785abccaec74cb8428dba9d21b43,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
           m_IntArgument: 0
@@ -733,7 +733,7 @@ MonoBehaviour:
         m_MethodName: ChangeEmissive
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2800000, guid: cd08975d9acbeab4d943290d8d330605,
+          m_ObjectArgument: {fileID: 2800000, guid: 3e84555fbc57f9c40a9358705fb7b563,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
           m_IntArgument: 0
@@ -749,13 +749,37 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3469287838668962723}
+        m_TargetAssemblyTypeName: Stele, Assembly-CSharp
+        m_MethodName: QuitApp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []
   m_Activated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3469287838668962723}
+        m_TargetAssemblyTypeName: Stele, Assembly-CSharp
+        m_MethodName: QuitApp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_Deactivated:
     m_PersistentCalls:
       m_Calls: []
@@ -1243,7 +1267,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1168333800
 PrefabInstance:
@@ -1378,7 +1402,7 @@ MonoBehaviour:
         m_MethodName: ChangeEmissive
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2800000, guid: adda46d1c3187f14a9636152ce44e085,
+          m_ObjectArgument: {fileID: 2800000, guid: 6cc6db6353ee27749a8ed486d8f1181d,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
           m_IntArgument: 0
@@ -1394,7 +1418,7 @@ MonoBehaviour:
         m_MethodName: ChangeEmissive
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 2800000, guid: cd08975d9acbeab4d943290d8d330605,
+          m_ObjectArgument: {fileID: 2800000, guid: 3e84555fbc57f9c40a9358705fb7b563,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
           m_IntArgument: 0
@@ -1600,7 +1624,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1706156730
 PrefabInstance:
@@ -1809,7 +1833,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 50, y: 173.4, z: 0}
 --- !u!1 &1807723828
 GameObject:
@@ -2024,7 +2048,7 @@ PrefabInstance:
     - target: {fileID: 4638189346275390807, guid: 46ef05207df1361488b5c67d7951afba,
         type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 4638189346275390807, guid: 46ef05207df1361488b5c67d7951afba,
         type: 3}
@@ -2108,127 +2132,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 46ef05207df1361488b5c67d7951afba, type: 3}
---- !u!1 &2120832528 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7168601359021992860, guid: 2efff76c097e5dc4abb4ad1eeabcc58a,
-    type: 3}
-  m_PrefabInstance: {fileID: 7168601360954788629}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2120832531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2120832528}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a35f6cfbfba9b548aaa00d52cfe8a50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 139173712}
-  m_Colliders: []
-  m_InteractionLayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_InteractionLayers:
-    m_Bits: 1
-  m_DistanceCalculationMode: 1
-  m_SelectMode: 0
-  m_CustomReticle: {fileID: 0}
-  m_AllowGazeInteraction: 0
-  m_AllowGazeSelect: 0
-  m_OverrideGazeTimeToSelect: 0
-  m_GazeTimeToSelect: 0.5
-  m_OverrideTimeToAutoDeselectGaze: 0
-  m_TimeToAutoDeselectGaze: 3
-  m_AllowGazeAssistance: 0
-  m_FirstHoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_LastHoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_HoverEntered:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3469287838668962723}
-        m_TargetAssemblyTypeName: Stele, Assembly-CSharp
-        m_MethodName: ChangeEmissive
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 2800000, guid: 912984658eea1754ca89da51c8681c51,
-            type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_HoverExited:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3469287838668962723}
-        m_TargetAssemblyTypeName: Stele, Assembly-CSharp
-        m_MethodName: ChangeEmissive
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 2800000, guid: cd08975d9acbeab4d943290d8d330605,
-            type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Texture, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_FirstSelectEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_LastSelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_SelectEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_SelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Activated:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Deactivated:
-    m_PersistentCalls:
-      m_Calls: []
-  m_StartingHoverFilters: []
-  m_StartingSelectFilters: []
-  m_StartingInteractionStrengthFilters: []
-  m_OnFirstHoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnLastHoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnHoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnHoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectCanceled:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnActivate:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnDeactivate:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1001 &2069981821570317544
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2254,17 +2157,17 @@ PrefabInstance:
     - target: {fileID: 2069981820343214766, guid: cca0f5e60294afe4fac258b5d34d64f4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.161
+      value: -0.188
       objectReference: {fileID: 0}
     - target: {fileID: 2069981820343214766, guid: cca0f5e60294afe4fac258b5d34d64f4,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.66
+      value: 0.339
       objectReference: {fileID: 0}
     - target: {fileID: 2069981820343214766, guid: cca0f5e60294afe4fac258b5d34d64f4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.842
+      value: 1.784
       objectReference: {fileID: 0}
     - target: {fileID: 2069981820343214766, guid: cca0f5e60294afe4fac258b5d34d64f4,
         type: 3}
@@ -2342,7 +2245,7 @@ PrefabInstance:
     - target: {fileID: 4844718033400669859, guid: c91f7c55a2391a84581081ff1463d6e8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 15
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 4844718033400669859, guid: c91f7c55a2391a84581081ff1463d6e8,
         type: 3}
@@ -2411,17 +2314,17 @@ PrefabInstance:
     - target: {fileID: 4681258930247523366, guid: 7ed45ef4766e97c4287feddd10ece5cc,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.289
+      value: -0.304
       objectReference: {fileID: 0}
     - target: {fileID: 4681258930247523366, guid: 7ed45ef4766e97c4287feddd10ece5cc,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.373
+      value: 1.493
       objectReference: {fileID: 0}
     - target: {fileID: 4681258930247523366, guid: 7ed45ef4766e97c4287feddd10ece5cc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.309
+      value: 2.31
       objectReference: {fileID: 0}
     - target: {fileID: 4681258930247523366, guid: 7ed45ef4766e97c4287feddd10ece5cc,
         type: 3}
@@ -2500,80 +2403,6 @@ PrefabInstance:
       objectReference: {fileID: 2800000, guid: 06724ab6c9da1cd4eb2f24ef97ddf13d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7ed45ef4766e97c4287feddd10ece5cc, type: 3}
---- !u!1001 &7168601360954788629
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 7168601359021992860, guid: 2efff76c097e5dc4abb4ad1eeabcc58a,
-        type: 3}
-      propertyPath: m_Name
-      value: options
-      objectReference: {fileID: 0}
-    - target: {fileID: 7168601359021992862, guid: 2efff76c097e5dc4abb4ad1eeabcc58a,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 7168601359021992862, guid: 2efff76c097e5dc4abb4ad1eeabcc58a,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.114
-      objectReference: {fileID: 0}
-    - target: {fileID: 7168601359021992862, guid: 2efff76c097e5dc4abb4ad1eeabcc58a,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.389
-      objectReference: {fileID: 0}
-    - target: {fileID: 7168601359021992862, guid: 2efff76c097e5dc4abb4ad1eeabcc58a,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.787
-      objectReference: {fileID: 0}
-    - target: {fileID: 7168601359021992862, guid: 2efff76c097e5dc4abb4ad1eeabcc58a,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9958472
-      objectReference: {fileID: 0}
-    - target: {fileID: 7168601359021992862, guid: 2efff76c097e5dc4abb4ad1eeabcc58a,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.029239176
-      objectReference: {fileID: 0}
-    - target: {fileID: 7168601359021992862, guid: 2efff76c097e5dc4abb4ad1eeabcc58a,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.0017347635
-      objectReference: {fileID: 0}
-    - target: {fileID: 7168601359021992862, guid: 2efff76c097e5dc4abb4ad1eeabcc58a,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.086200185
-      objectReference: {fileID: 0}
-    - target: {fileID: 7168601359021992862, guid: 2efff76c097e5dc4abb4ad1eeabcc58a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 3.321
-      objectReference: {fileID: 0}
-    - target: {fileID: 7168601359021992862, guid: 2efff76c097e5dc4abb4ad1eeabcc58a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0.488
-      objectReference: {fileID: 0}
-    - target: {fileID: 7168601359021992862, guid: 2efff76c097e5dc4abb4ad1eeabcc58a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 9.908
-      objectReference: {fileID: 0}
-    - target: {fileID: 7168601359021992863, guid: 2efff76c097e5dc4abb4ad1eeabcc58a,
-        type: 3}
-      propertyPath: m_Size.z
-      value: 0.02
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2efff76c097e5dc4abb4ad1eeabcc58a, type: 3}
 --- !u!1001 &8142816173118969142
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2678,17 +2507,17 @@ PrefabInstance:
     - target: {fileID: 9156096588188686058, guid: da19059303db9cc49b2135d31e640327,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.208
+      value: -0.233
       objectReference: {fileID: 0}
     - target: {fileID: 9156096588188686058, guid: da19059303db9cc49b2135d31e640327,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.97
+      value: 0.662
       objectReference: {fileID: 0}
     - target: {fileID: 9156096588188686058, guid: da19059303db9cc49b2135d31e640327,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.86
+      value: 1.814
       objectReference: {fileID: 0}
     - target: {fileID: 9156096588188686058, guid: da19059303db9cc49b2135d31e640327,
         type: 3}

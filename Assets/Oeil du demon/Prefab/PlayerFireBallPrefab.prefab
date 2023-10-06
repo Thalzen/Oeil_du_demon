@@ -95,7 +95,7 @@ MonoBehaviour:
   forceExplosion: {fileID: 462671940400620826, guid: d948b79147ef50a48a2a98676685c2d6,
     type: 3}
   _audioSource: {fileID: 0}
-  _pew: {fileID: 8300000, guid: c1e315b4222c9754492e50a8e81a602f, type: 3}
+  _pew: {fileID: 8300000, guid: 09ca733a8e8f98440b6dc6ba88d92b76, type: 3}
 --- !u!82 &-6429512008016498397
 AudioSource:
   m_ObjectHideFlags: 0
@@ -106,20 +106,20 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
+  m_audioClip: {fileID: 8300000, guid: a14a248b816d06341a63e852b88cd143, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.35
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
+  MinDistance: 0
+  MaxDistance: 30
+  Pan2D: 1
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -152,7 +152,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -182,7 +182,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 1.1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

@@ -50,4 +50,10 @@ public class Stele : MonoBehaviour
     {
         SceneManager.LoadScene(Scenename);
     }
+
+    public void QuitApp()
+    {
+        Application.Quit();
+        
+    }
 }

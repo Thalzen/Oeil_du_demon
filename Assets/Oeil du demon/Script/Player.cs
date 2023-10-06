@@ -37,16 +37,14 @@ public class Player : MonoBehaviour
 
    private void TakingDamage(float damage)
    {
-       _audioSource.PlayOneShot(oof);
+       //_audioSource.PlayOneShot(oof);
        StartCoroutine(VignetteDamage());
        HP -= damage;
-       _healthbar.fillAmount = HP / MAXHP;
+       if(_healthbar != null)
+        _healthbar.fillAmount = HP / MAXHP;
        if (HP <= 0)
-       {
-           GameOver.Invoke();
-       }
-
-
+         GameOver.Invoke();
+       
    }
 
    private IEnumerator VignetteDamage()
