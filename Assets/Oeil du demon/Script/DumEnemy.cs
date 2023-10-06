@@ -30,13 +30,13 @@ public class DumEnemy : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerFireBall.DamageDealt += TakingDamage;
+        //PlayerFireBall.DamageDealt += TakingDamage;
         
     }
 
     private void OnDisable()
     {
-        PlayerFireBall.DamageDealt -= TakingDamage;
+        //PlayerFireBall.DamageDealt -= TakingDamage;
         
     }
 
@@ -110,12 +110,12 @@ public class DumEnemy : MonoBehaviour
     
 
 
-    public void TakingDamage(float damage)
-    {
-        HP -= damage;
-        _healthbar.fillAmount = HP / MAXHP;
-        
-    }
+    // public void TakingDamage(float damage)
+    // {
+    //     HP -= damage;
+    //     _healthbar.fillAmount = HP / MAXHP;
+    //     
+    // }
     
     
     

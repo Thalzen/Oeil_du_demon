@@ -17,6 +17,8 @@ public class SlothEnemy : MonoBehaviour
     [SerializeField]private Transform RightHand;
     [SerializeField]private EnemySpellCasting _enemySpellCasting;
     [SerializeField] private Image _healthbar;
+    [SerializeField] private GameObject _fireballdeath;
+    [SerializeField] private Transform _fireballdeathpos;
 
     public UnityEvent ChangetoCredit;
     
@@ -74,16 +76,13 @@ public class SlothEnemy : MonoBehaviour
     private IEnumerator PatternAbove50()
     {
         _enemySpellCasting.Fireball();
-        yield return new WaitForSeconds(0.3f);
-        _enemySpellCasting.Fireball();
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
         StartCoroutine(ChoosePattern());
     }
     
     private IEnumerator PatternAbove25()
     {
-        _enemySpellCasting.Fireball();
-        yield return new WaitForSeconds(0.3f);
+        
         _enemySpellCasting.Fireball();
         yield return new WaitForSeconds(0.3f);
         _enemySpellCasting.Fireball();
@@ -93,8 +92,7 @@ public class SlothEnemy : MonoBehaviour
 
     private IEnumerator PatternLess25()
     {
-        _enemySpellCasting.Fireball();
-        yield return new WaitForSeconds(0.3f);
+        
         _enemySpellCasting.Fireball();
         yield return new WaitForSeconds(0.3f);
         _enemySpellCasting.Fireball();
