@@ -8,9 +8,8 @@ OcclusionCullingSettings:
     smallestOccluder: 5
     smallestHole: 0.25
     backfaceThreshold: 100
-  m_SceneGUID: b4e730b2740f99f4a8e2bdfbfa60056a
-  m_OcclusionCullingData: {fileID: 36300000, guid: 0962226dc4bbbdb4dacdd05a786f2a55,
-    type: 2}
+  m_SceneGUID: 00000000000000000000000000000000
+  m_OcclusionCullingData: {fileID: 0}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -98,7 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: fbcfa07a369023441b51f761fce4a8f9,
+    type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: d8687b53c57ee3446b1d8f4141ab4bf8,
     type: 2}
 --- !u!196 &4
@@ -239,6 +239,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8266879170451448148, guid: 7a14b71c82cd40b4e8f375339061298c,
         type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266879170451448148, guid: 7a14b71c82cd40b4e8f375339061298c,
+        type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -315,12 +320,17 @@ PrefabInstance:
     - target: {fileID: 8266879170745947502, guid: 7a14b71c82cd40b4e8f375339061298c,
         type: 3}
       propertyPath: m_RenderMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8266879170745947502, guid: 7a14b71c82cd40b4e8f375339061298c,
         type: 3}
       propertyPath: m_Lightmapping
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266879170745947502, guid: 7a14b71c82cd40b4e8f375339061298c,
+        type: 3}
+      propertyPath: m_BounceIntensity
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8408208665893394173, guid: 7a14b71c82cd40b4e8f375339061298c,
         type: 3}
@@ -7172,7 +7182,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: e3e618d90395f2747b2d4af40aae600a,
         type: 3}
       propertyPath: m_CastShadows
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: e3e618d90395f2747b2d4af40aae600a,
         type: 3}
@@ -7993,12 +8003,17 @@ PrefabInstance:
     - target: {fileID: 8266879170745947502, guid: 7a14b71c82cd40b4e8f375339061298c,
         type: 3}
       propertyPath: m_RenderMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8266879170745947502, guid: 7a14b71c82cd40b4e8f375339061298c,
         type: 3}
       propertyPath: m_Lightmapping
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266879170745947502, guid: 7a14b71c82cd40b4e8f375339061298c,
+        type: 3}
+      propertyPath: m_BounceIntensity
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8408208665893394173, guid: 7a14b71c82cd40b4e8f375339061298c,
         type: 3}
@@ -8223,8 +8238,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8266879170745947502, guid: 7a14b71c82cd40b4e8f375339061298c,
         type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266879170745947502, guid: 7a14b71c82cd40b4e8f375339061298c,
+        type: 3}
       propertyPath: m_Lightmapping
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266879170745947502, guid: 7a14b71c82cd40b4e8f375339061298c,
+        type: 3}
+      propertyPath: m_BounceIntensity
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8408208665893394173, guid: 7a14b71c82cd40b4e8f375339061298c,
         type: 3}
@@ -9130,12 +9155,17 @@ PrefabInstance:
     - target: {fileID: 8266879170745947502, guid: 7a14b71c82cd40b4e8f375339061298c,
         type: 3}
       propertyPath: m_RenderMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8266879170745947502, guid: 7a14b71c82cd40b4e8f375339061298c,
         type: 3}
       propertyPath: m_Lightmapping
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8266879170745947502, guid: 7a14b71c82cd40b4e8f375339061298c,
+        type: 3}
+      propertyPath: m_BounceIntensity
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8408208665893394173, guid: 7a14b71c82cd40b4e8f375339061298c,
         type: 3}
@@ -9225,6 +9255,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 1bbf90c2bd368e2489aa2e3ef26fa9e6,
         type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 1bbf90c2bd368e2489aa2e3ef26fa9e6,
+        type: 3}
       propertyPath: m_ScaleInLightmap
       value: 0.5
       objectReference: {fileID: 0}
@@ -9251,12 +9286,12 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1bbf90c2bd368e2489aa2e3ef26fa9e6,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1bbf90c2bd368e2489aa2e3ef26fa9e6,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 2147483647
+      value: 127
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bbf90c2bd368e2489aa2e3ef26fa9e6, type: 3}
@@ -9358,7 +9393,7 @@ Light:
   m_Lightmapping: 1
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -9616,7 +9651,7 @@ MonoBehaviour:
     type: 3}
   trail: {fileID: 3187438081828941415, guid: eca5fc8b374cfb14dbcccdffeaaa3006, type: 3}
   creationMode: 0
-  newGestureName: Shield
+  newGestureName: Fireball
   recognitionThreshold: 0.94
   _GestureList: {fileID: 11400000, guid: 2db3c042ecd72ba4d86c839a2bf4a74b, type: 2}
   OnRecognized:
@@ -10737,7 +10772,7 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 3
+  m_BounceIntensity: 2
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -10987,7 +11022,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1bbf90c2bd368e2489aa2e3ef26fa9e6,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1bbf90c2bd368e2489aa2e3ef26fa9e6,
         type: 3}

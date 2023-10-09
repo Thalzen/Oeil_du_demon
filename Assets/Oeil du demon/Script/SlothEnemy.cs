@@ -69,14 +69,16 @@ public class SlothEnemy : MonoBehaviour
     private IEnumerator PatternAbove75()
     {
         _enemySpellCasting.Fireball();
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(4f);
         StartCoroutine(ChoosePattern());
     }
     
     private IEnumerator PatternAbove50()
     {
         _enemySpellCasting.Fireball();
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.2f);
+        _enemySpellCasting.Fireball();
+        yield return new WaitForSeconds(4f);
         StartCoroutine(ChoosePattern());
     }
     
@@ -84,9 +86,11 @@ public class SlothEnemy : MonoBehaviour
     {
         
         _enemySpellCasting.Fireball();
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.2f);
         _enemySpellCasting.Fireball();
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.2f);
+        _enemySpellCasting.Fireball();
+        yield return new WaitForSeconds(4f);
         StartCoroutine(ChoosePattern());
     }
 
@@ -94,11 +98,13 @@ public class SlothEnemy : MonoBehaviour
     {
         
         _enemySpellCasting.Fireball();
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.2f);
         _enemySpellCasting.Fireball();
-        yield return new WaitForSeconds(0.3f);
+        yield return new WaitForSeconds(0.2f);
         _enemySpellCasting.Fireball();
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.2f);
+        _enemySpellCasting.Fireball();
+        yield return new WaitForSeconds(4f);
         StartCoroutine(ChoosePattern());
         
     }

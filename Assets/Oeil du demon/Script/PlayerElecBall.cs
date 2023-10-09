@@ -28,6 +28,8 @@ public class PlayerElecBall : MonoBehaviour
     [SerializeField] private GameObject fireballdirection;
     [SerializeField] private GameObject tinyExplosion;
     [SerializeField] private GameObject forceExplosion;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _pew;
 
     public delegate void DamageEvent(float damage);
 
@@ -38,6 +40,7 @@ public class PlayerElecBall : MonoBehaviour
 
     private void Awake()
     {
+        _audioSource = GetComponent<AudioSource>();
         //_elecballprefab = gameObject.transform.GetChild(0).gameObject;
         _elecballprefab = gameObject;
     }
@@ -57,6 +60,7 @@ public class PlayerElecBall : MonoBehaviour
         //_elecballprefab.GetComponent<VisualEffect>().playRate = 4f;
         _elecballprefab.transform.rotation = Quaternion.Euler(-90,0,0);
         gameObject.transform.localRotation = Quaternion.Euler(Random.Range(-20,20), Random.Range(-50,50),0f);
+        _audioSource.PlayOneShot(_pew);
         //gameObject.transform.localRotation = Quaternion.Euler(fireballanglex, fireballangley,0f);
         //gameObject.transform.localRotation = Quaternion.Euler(fireballanglex, fireballangley,0f);
         for (int i = 0; i < 1000f; i++)
