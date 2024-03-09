@@ -4,12 +4,21 @@
 
 </p>
 
+‎ 
+‎ 
+‎ 
+
 <p align="justify">
 <i>
 "L'Œil du Démon se déroule dans un univers de dark fantasy où vous devez vaincre un démon lors d'un duel de magie.
 Vous devrez dessiner des symboles afin de lancer des sorts tout en parant les sorts ennemis." 
 </i>
 </p>
+‎ 
+‎ 
+‎ 
+
+‎ 
 
 <p align="center">
 
